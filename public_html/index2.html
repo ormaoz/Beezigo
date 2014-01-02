@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript">
+             alert("first alert");
+            $('#splash').ready()
+            {
+                alert("second");
+                $('#main').load('start.html');
+                alert("third");
+                setTimeout(function() {
+                    $('#main').ready(function() {
+                        $('#splash').remove();
+                    });
+                }, 2000);
+
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <div id="splash" style="position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; z-index: 10;">
+            splash
+        </div>
+        <div id="main">
+            <!-- keep empty -->
+        </div>
+    </body>
+</html>
