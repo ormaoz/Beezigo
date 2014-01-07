@@ -4,7 +4,7 @@
 function get_busy() {
     $.ajax({
         method: 'POST',
-        url : 'http://localhost:8888',
+        url : 'http://ranor.milab.idc.ac.il:8888',
         data : {
             reqString : 'location_data',
             loc_name  : 'times square',
@@ -28,5 +28,5 @@ function get_busy() {
         error : function() {
             alert("Error: Something went wrong!");
         }
-    });
+    })
 }
