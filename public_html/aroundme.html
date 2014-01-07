@@ -16,9 +16,11 @@ and open the template in the editor.
     </head>
     <body>
     <center>
-        <table width="95%">
+
+        <table>
+            
             <tr>
-                <td>
+                <td width="90%">
                     <br>
                     <ul data-role="listview" data-split-icon="comment" data-split-theme="a" data-inset="true">
                         <li><a href="met.html"><img src="images/met.jpg">The MET</a>
@@ -49,11 +51,11 @@ and open the template in the editor.
             </tr>
         </table>
     </center>
-    <div data-role="footer" data-id="foo1" data-position="fixed">
-        <div data-role="navbar">
+    <div data-role="footer" data-theme=a data-id="foo1" data-position="fixed">
+        <div data-role="navbar" data-theme=a>
             <ul>
                 <li><a href="index2.html" data-icon="search">Search</a></li>
-                <li><a href="aroundme.html" data-icon="location">Around Me</a></li>
+                <li><a href="aroundme.html" data-icon="location" class="ui-btn-active ui-state-persist">Around Me</a></li>
                 <li><a href="settings.html" data-icon="gear">Settings</a></li>
             </ul>
         </div><!-- /navbar -->
