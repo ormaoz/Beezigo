@@ -23,14 +23,7 @@ and open the template in the editor.
                     },
 
                     success: function(data) {
-
-
-                        alert("Why not working??");
-                        // If we received a successful callback, parse the data, extract
-                        // the 'count' field and assign its value to the counter
-                        //document.write("<p>data.meter</p >");
-                        //document.write("<p>data.meter</p>");
-
+                        document.getElementById('busy').value = data.meter;
                     },
 
                     error : function() {
@@ -38,9 +31,6 @@ and open the template in the editor.
                     }
                 })
             }
-
-
-
         </script>
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -51,7 +41,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width">
     </head>
 
-    <body onload="get_busy()">
+    <body>
         <div data-role="header"> 
             <h1>Times Square</h1> 
         </div>
@@ -70,7 +60,7 @@ and open the template in the editor.
                     <form>
                         <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-comment ui-btn-icon-left ui-btn-inline">Report</a>
                     </form>
-                    
+                    <button type="button" onclick="get_busy()">How Busy?</button>
                 </td>
             </tr>
             
