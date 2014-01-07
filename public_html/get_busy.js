@@ -20,7 +20,7 @@ function get_busy() {
 
             // If we received a successful callback, parse the data, extract
             // the 'count' field and assign its value to the counter
-            document.write(<p>data.meter</p>);
+            document.write('<p>data.meter</p>');
 
 
         },
@@ -28,5 +28,5 @@ function get_busy() {
         error : function() {
             alert("Error: Something went wrong!");
         }
-    })
+    });
 }
