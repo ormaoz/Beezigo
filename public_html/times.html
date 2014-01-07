@@ -13,20 +13,18 @@ and open the template in the editor.
             function get_busy() {
                 $.ajax({
                     method: 'POST',
-                    url : 'http://ranor.milab.idc.ac.il:8888',
-                    data : {
-                        reqString : 'location_data',
-                        loc_name  : 'times square',
-                        lat       : '40.759101',
-                        long      : '73.984406',
-                        capacity  : '1000'
+                    url: 'http://ranor.milab.idc.ac.il:8888',
+                    data: {
+                        reqString: 'location_data',
+                        loc_name: 'times square',
+                        lat: '40.759101',
+                        long: '73.984406',
+                        capacity: '1000'
                     },
-
                     success: function(data) {
                         document.getElementById('busy').value = data.meter;
                     },
-
-                    error : function() {
+                    error: function() {
                         alert("Error: Something went wrong!");
                     }
                 })
@@ -52,7 +50,7 @@ and open the template in the editor.
             </tr>
             <tr>
                 <td><form>
-                        <input id="busy" type="range" name="slider-2" data-highlight="true" min="0" max="100" value="80">
+                        <input id="busy2" type="range" name="slider-2" data-highlight="true" min="0" max="100" value="80">
                     </form></td>
             </tr>
             <tr>
@@ -60,10 +58,14 @@ and open the template in the editor.
                     <form>
                         <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-comment ui-btn-icon-left ui-btn-inline">Report</a>
                     </form>
-                    <button type="button" onclick="get_busy()">How Busy?</button>
+                    <form>
+                        <button type="button" onclick="get_busy()">How Busy?</button>
+                        <label for="text-1">BZ Level:</label>
+                        <input type="text" name="text-1" id="busy" value="">
+                    </form>
                 </td>
             </tr>
-            
+
         </table>
     </center> 
     <div data-role="popup" id="purchase" data-theme="a" align="center" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
@@ -77,10 +79,10 @@ and open the template in the editor.
         <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini">Send</a>
         <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancel</a>
     </div>
-   <div data-role="footer" data-theme=a data-id="foo1" data-position="fixed">
+    <div data-role="footer" data-theme=a data-id="foo1" data-position="fixed">
         <div data-role="navbar" data-theme=a>
             <ul>
-               <li><a href="index2.html" data-icon="search">Search</a></li>
+                <li><a href="index2.html" data-icon="search">Search</a></li>
                 <li><a href="aroundme.html" data-icon="location">Around Me</a></li>
                 <li><a href="settings.html" data-icon="gear">Settings</a></li>
             </ul>
