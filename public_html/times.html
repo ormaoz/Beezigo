@@ -13,34 +13,38 @@ and open the template in the editor.
         <title>Times Square</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
+        <script type="text/javascript">
+            $(document).ready(
+                    $.ajax({
+                        method: 'POST',
+                        url : 'http://ranor.milab.idc.ac.il:8888',
+                        data : {
+                            reqString : 'location_data',
+                            loc_name  : 'times square',
+                            lat       : '40.759101',
+                            long      : '73.984406',
+                            capacity  : '1000'
+                        },
+
+                        success: function(data) {
+
+
+                            alert(data.meter);
+
+                            // If we received a successful callback, parse the data, extract
+                            // the 'count' field and assign its value to the counter
+                            document.getElementById("busy").value(data.meter);
+
+                        },
+
+                        error : function() {
+                            alert("Error: Something went wrong!");
+                        }
+                    })
+            )
+        </script>
+
     </head>
-    <script type="text/javascript">
-        $(document).ready(
-            $.ajax({
-                method: 'POST',
-                url : 'http://ranor.milab.idc.ac.il:8888',
-                data : {
-                    reqString : 'location_data',
-                    loc_name  : 'times square',
-                    lat       : '40.759101',
-                    long      : '73.984406',
-                    capacity  : '1000'
-                },
-
-                success: function(data) {
-
-                    // If we received a successful callback, parse the data, extract
-                    // the 'count' field and assign its value to the counter
-                    var serverData = JSON.parse(data);
-                    document.getElementById("busy").innerHTML = serverData.meter;
-                },
-
-                error : function() {
-                    alert("Error: Something went wrong!");
-                }
-            })
-        )
-    </script>
     <body>
         <div data-role="header"> 
             <h1>Times Square</h1> 
@@ -52,7 +56,7 @@ and open the template in the editor.
             </tr>
             <tr>
                 <td><form>
-                        <input id="busy" type="range" name="slider-2" id="slider-2" data-highlight="true" min="0" max="100" value="80">
+                        <input id="busy" type="range" name="slider-2" data-highlight="true" min="0" max="100" value="80">
                     </form></td>
             </tr>
             <tr>
