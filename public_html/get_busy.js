@@ -4,7 +4,7 @@
 function get_busy() {
     $.ajax({
         method: 'POST',
-        url : 'http://ranor.milab.idc.ac.il:8888',
+        url : 'http://212.179.115.72:8888',
         data : {
             reqString : 'location_data',
             loc_name  : 'times square',
