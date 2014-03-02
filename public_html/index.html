@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+       
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
         <style type="text/css">a {text-decoration: none}</style>
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript">
-            $('#splash').ready() 
+            $('#splash').load() 
             {
                 $('#main').load('index2.html');
                 setTimeout(function() {
@@ -15,7 +16,7 @@
                         $('#splash').remove();
                         window.location.href = "index2.html";
                     });
-                }, 5000);
+                }, 3000);
             }
 
         </script> 
