@@ -1,0 +1,92 @@
+/*
+ * CSS Calendar
+ *
+ * @author: Francisco Neves
+ */
+	.light-gray{
+		line-height:2em;
+	}
+	.simple-lightgray{
+		height:30px;
+	}
+	#calendar{
+		display: block;
+		overflow: hidden;
+	}
+		/* Title */
+    #calendar .c-title{
+			position: relative;
+			color: #4fc6d8;
+			padding:15px 6px 10px 6px;
+			background:#152840;
+	}
+	#calendar .c-title .left-button{
+			cursor: pointer;		
+			float:left; 
+			display:inline-block		
+    }
+	#calendar .c-title .title{
+			margin: 0 auto;
+			text-align: center;
+			color: #FFF;
+			font-size:0.85em;
+			font-weight:bold;
+			display:inline-block;	
+			vertical-align:sub;
+			padding-left:10%;
+   }
+	#calendar .c-title .right-button{
+			cursor: pointer;	
+			float: right;
+			display:inline-block;
+			margin-top:0px;
+	}
+		/* Days Wrapper */
+	#calendar .c-days{
+			width: 100%;
+			border-spacing: 0px;
+			border-collapse: separate;
+			padding:0px;
+	}
+	#calendar .c-days thead th{
+			padding: 6px 0 6px 0;
+			text-align: center;
+			font-size:0.85em;
+			color: #4FC4F6;
+	}
+	#calendar .c-days tbody tr td{
+		border-top: 1px solid #566880;
+		border-left: 1px solid #566880;
+	}
+	#calendar .c-days tbody tr td > span {
+			display: block;
+			padding:6px 5px;
+			margin:0;
+			text-align: center;
+			color: #FFF;
+			font-size:0.8em;
+			cursor: pointer;
+			background:none;
+			border:none;
+   }
+	#calendar .c-days tbody tr td.other-month > span {
+			color:#152840;
+            cursor: default;
+            background:#152840;
+   }
+   #calendar .c-days tbody tr td.other-month > span:hover{
+   	       color:#FFF;
+   }
+	#calendar .c-days tbody tr td.today > span {
+			background:#57CBC8;
+			color: #FFF;
+			cursor: default;
+  }	
+    #calendar .c-days tbody tr td:not([class="today"]) > span:hover {
+				background:#EA6060;
+  }
+
+	#calendar .c-days tbody tr td:not([class="today"]) > span:active{
+				color:#EC3D68;
+				background:#FFF;
+   }

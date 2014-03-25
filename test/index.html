@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       
+      
+
+    </head>
+    <body bgcolor="#eaeaea" onload="changeBackground();">
+	<input type="text" name="text-basic" id="inpt" onfocus="this.value=''" value="1 to 100">
+	<button type="submit" id="submit" onclick="setValue(inpt.value)">Set</button>		
+	<button type="submit" id="clear" onclick="setValue(0)">Clear</button>
+		<script type="text/javascript">
+			
+			var value = 2;
+
+			document.onkeydown=function(s){
+				var s=window.event || s
+				if (value < 100) {
+					value++;
+					changeBackground();
+				}			
+			}
+			
+			function setValue(num) {
+				setInterval(function(){
+					while (value < num) {
+						value++;
+						changeBackground();
+					}
+				},1000);
+			}
+			function crap() {}
+			function getValue() {
+				return (value);
+			}
+			
+			/* Changes the color of the bar according to the busy level */
+			function changeBackground() {
+				var redVal = Math.floor(value*2.55);
+				var blueVal = Math.floor((100 - value)*2.55);
+				changeSize(value);
+				document.getElementById('left').style.background = 'rgb(' + redVal + ',50,' + blueVal + ')';
+				document.getElementById('middle').style.background = 'rgb(' + redVal + ',50,' + blueVal + ')';
+				document.getElementById('middle2').style.background = 'rgb(' + redVal + ',50,' + blueVal + ')';
+				document.getElementById('middle3').style.background = 'rgb(' + redVal + ',50,' + blueVal + ')';
+
+				
+			}
+			
+			function changeSize(size) {
+				var img = document.getElementById('middle');
+				if(img && img.style) {
+				img.style.height = '50px';
+				img.style.width = size*2 + 'px';
+				}
+				var img = document.getElementById('middle3');
+				if(img && img.style) {
+				img.style.height = '50px';
+				img.style.width = 200-size*2 + 'px';
+				}
+			}
+		</script>
+		<br><br>
+		<img src="madadleft.png" id="left"><img src="madadcenter.png" id="middle"><img src="madadcenter2.png" id="middle2"><img src="madadcenter3.png" id="middle3"><img src="madadright.png">
+		
+    </body>
+</html>
