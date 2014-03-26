@@ -61,6 +61,7 @@ and open the template in the editor.
                             // In case a specific place was searched for
                             } else {
                                 switchPage('onePlace');
+                                $("#onePlace").html("");
                                 var items = [];
                                 var busyMeter = data.Location_names[0].meter;
                                 var strbusy = busyMeter.toString();
