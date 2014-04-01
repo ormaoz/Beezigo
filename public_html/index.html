@@ -6,95 +6,133 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
         <style type="text/css">a {text-decoration: none}</style>
-        <title>Search</title>
+        <title>EZBZ</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
+        <style>
+            body
+            {
+                background-color:#ab8d3f;
+            }
+            img.imagelist
+            {
+                max-width:100%;
+            }
+            ul
+            {
+                list-style-type: none;
+                padding: 0px;
+                margin: 0px;
+            }
+            li
+            {
+                margin-bottom: -200px;
+            }
+            h2
+            {
+                color:#f7f7f7;
+                font-family: 'PT Sans Narrow', sans-serif;
+                font-size: 30px;
+            }
+            p
+            {
+                color:#f7f7f7;
+                font-family: 'PT Sans Narrow', sans-serif;
+                font-size: 20px;
+            }
+
+        </style>
         <script type="text/javascript">
-            
-            setTimeout(function(){
+
+            setTimeout(function() {
                 $("#splash").hide();
                 $("#mainsearch").show();
-                $("#footer").show(); 
-                }, 3000);
-            
-             function sendSearch() {
+                $("#footer").show();
+            }, 3000);
+
+            function sendSearch() {
                 var searchQuery = $("#search-basic").val();
                 //document.getElementById("search-basic").value;
                 $.ajax({
                     method: 'POST',
-                    url : 'http://ranor.milab.idc.ac.il:8888',
-                    data : {
-                        reqString : "location_data",
-                        loc_name : searchQuery
+                    url: 'http://ranor.milab.idc.ac.il:8888',
+                    data: {
+                        reqString: "location_data",
+                        loc_name: searchQuery
                     },
-
                     success: function(data) {
                         console.log(data);
                         var status = data.Status;
-                        
+
                         // In case search was successful
                         if (status == "Success") {
                             // In case a category was searched for
                             if (data.Location_names.length > 1) {
                                 switchPage('list');
                                 var items = [];
-                                items.push("<ul data-role=\"listview\" data-split-icon=\"comment\" data-split-theme=\"a\" data-inset=\"true\">");
+                                items.push("<ul data-role=\"listview\" data-inset=\"true\">");
                                 $.each(data.Location_names, function(key, val) {
-                                    items.push("<li id='" + key + "'>" + 
-                                            "<a href=\"#place\" onclick=\"placePage('" + val.p_name + "', '" + val.meter + "')\"><img src=\"images/times.jpg\">" + 
-                                            val.p_name + 
-                                            "</a> Busy meter: " + val.meter + "<a href=\"#report\" data-rel=\"popup\" data-position-to=\"window\" data-transition=\"pop\"> Report</a></li>");
+                                    items.push("<li id='" + key + "'>" +
+                                            "<div class=\"listdiv\">" +
+                                            "<a href=\"#place\" onclick=\"placePage('" + val.p_name + "', '" + val.meter +
+                                            "', '" + val.image + "')\">" +
+                                            "<img class=\"imagelist\" style='display:block; width:100%;height:200px;' id='image" +
+                                            val.p_name + "' src='data:image/bmp;base64," + val.image + "' /><p class=\"textlist\" style='position:relative; left:5px; top:-100px; z-index:1;'>" +
+                                            val.p_name + "</p></a><br><img src=\"images/bar/leftsideofbar.png\" style='position:relative; left:10px; top:-124px; z-index:2;'>" +
+                                            "<img src=\"images/bar/middlebar.png\" height=\"18\" width=\"" + val.meter * 2.3 + "\" style='position:relative; left:10px; top:-124px; z-index:2;'>" +
+                                            "<img src=\"images/bar/rightsideofbar.png\" style='position:relative; left:10px; top:-124px; z-index:2;'>" +
+                                            "<img src=\"images/bar/barbg.png\" style='position:relative; left:5px; top:-150px; z-index:1;'> <p style='position:relative; left:270px; top:-203px; z-index:1; font-color:#f7f7f7'>" + Math.round(val.meter) + "%</p></li></div>");
                                 });
                                 items.push("</ul>");
-                                $(items.join("")).prependTo( "#list" );
+                                $(items.join("")).prependTo("#list");
 
-                                 /*   $("<ul/>", {
-                                    "class": "my-new-list",
-                                    html: items.join("")
-                                }).prependTo("#list");
-                                console.log(items.join("")); */
-                            
-                            // In case a specific place was searched for
+                                /*   $("<ul/>", {
+                                 "class": "my-new-list",
+                                 html: items.join("")
+                                 }).prependTo("#list");
+                                 console.log(items.join("")); */
+
+                                // In case a specific place was searched for
                             } else {
                                 switchPage('onePlace');
                                 $("#onePlace").html("");
-                                var items = [];
-                                var busyMeter = data.Location_names[0].meter;
-                                var strbusy = busyMeter.toString();
-                                items.push("<center><h2>" + data.Location_names[0].p_name + 
-                                        "</h2><img src=\"images/times.jpg\"><br><br><p>Busy meter: " + 
-                                        strbusy + "</p></center>");
-                                $(items.join("")).prependTo( "#onePlace" );
+                                placePage(data.Location_names[0].p_name, data.Location_names[0].meter, data.Location_names[0].image);
                             }
-                            
-                        // In case user search for non exciting place
+
+                            // In case user search for non exciting place
                         } else {
                             var items = [];
                             items.push("<p>Could not find the place you're looking for</p>");
                             $("#belowSearch").html("");
-                            $(items.join("")).prependTo( "#belowSearch" );
-                        }   
+                            $(items.join("")).prependTo("#belowSearch");
+                        }
                     },
                     // In case of server error
-                    error : function() {
-                           alert("Error: Something went wrong!");  
+                    error: function() {
+                        alert("Error: Something went wrong!");
                     }
                 });
             }
-           function placePage (name, busy) {
+
+            function placePage(name, busy, image) {
                 switchPage('onePlace');
                 $("#onePlace").html("");
                 var items = [];
-                items.push("<center><h2>" + name + 
-                        "</h2><img src=\"images/times.jpg\"><br><br><p>Busy meter: " + 
-                        busy + "</p></center>");
-                $(items.join("")).prependTo( "#onePlace" );
-           }
-            
+                items.push("<center><h2 style='position:relative; z-index:2;'>" + name +
+                        "</h2></center><img style='display:block; width:100%;height:100%; position:relative; top:-101px;' id='image" +
+                        name + "' src='data:image/bmp;base64," + image + "' /><img src=\"images/bar/leftsideofbar.png\" style='position:relative; left:10px; top:-144px; z-index:2;'>" +
+                        "<img src=\"images/bar/middlebar.png\" height=\"18\" width=\"" + busy * 2.3 + "\" style='position:relative; left:10px; top:-144px; z-index:2;'>" +
+                        "<img src=\"images/bar/rightsideofbar.png\" style='position:relative; left:10px; top:-144px; z-index:2;'>" +
+                        "<img src=\"images/bar/barbg.png\" style='position:relative; left:5px; top:-170px; z-index:1;'> <p style='position:relative; left:270px; top:-223px; z-index:1; font-color:#f7f7f7'>" +
+                        Math.round(busy) + "%</p></li></div>" + "<center><img src=\"images/buttons/report.png\" style='width:20%'> <img src=\"images/buttons/snooze.png\" style='width:20%'> <img src=\"images/buttons/similar.png\" style='width:20%'></center>");
+                $(items.join("")).prependTo("#onePlace");
+            }
+
             function switchPage(page) {
                 $("#splash").hide();
                 $("#mainsearch").hide();
@@ -102,115 +140,126 @@ and open the template in the editor.
                 $("#list").hide();
                 $("#onePlace").hide();
                 $("#" + page).show();
-                $("#footer").show(); 
+                $("#footer").show();
             }
         </script>
     </head>
     <body>
-        
-        
+
+
         <!-- This is the splash page -->
         <div id="splash" style="position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; z-index: 10;">
-            <center><br><br><br><img src="images/splash2.png"></center>
+            <center><br><br><br><img src="images/splash.png"></center>
         </div>
-     
-        
+
+
         <!-- Main search page -->
         <div id="mainsearch" style="display:none;">
             <center>
                 <table border="0" width="90%">
                     <tr>
-                        <td align="center"><br><br><img src="images/logo2.png"></td>
+                        <td align="center"><br><br><img src="images/logo.png"></td>
                     </tr>
 
                     <tr>
                         <td><input type="search" name="search" id="search-basic" value="" onchange="sendSearch()" placeholder="Enter the place you're going to"/></td>
+
                     </tr>
+                    <tr>
+                        <td>
+                    <center><button class="ui-btn ui-shadow" onClick="sendSearch()">Search</button></center> 
+                    <br>
+
+                    </td>
+                    </tr>
+
                 </table>
-                    <div id="belowSearch">
-                        
-                    </div> 
+                <div id="belowSearch">
+
+                </div> 
             </center>
         </div>
         <!-- /Main -->
-        
+
+
+
         <!-- List of places page -->
         <div id="list" style="display:none;">
-            
+
         </div>
         <!-- /List -->
-        
+
         <!-- One places page -->
         <div id="onePlace" style="display:none;">
             <center>
                 <table border="0" width="90%">
-                    
+
                 </table>
             </center>
         </div>
         <!-- /Place -->
-        
-         <!-- Settings page -->
+
+        <!-- Settings page -->
         <div id="settings" style="display:none;">
             <center>
-            <table  width="90%">
-                <tr><td><br></td></tr>
-                <tr>
-                    <td align="left">
-                        <select name="flip-1" id="flip-1" data-role="slider">
-                            <option value="off">Off</option>
-                            <option value="on">On</option>
-                        </select>
-                    </td>
-                    <td align="right">Enable passive reports</td>
-                </tr>
-                <tr>
-                    <td align="left">
-                        <select name="flip-2" id="flip-2" data-role="slider">
-                            <option value="off">Off</option>
-                            <option value="on">On</option>
-                        </select>
-                    </td>
-                    <td align="right">Offer me alternatives</td>
-                </tr>
-                <tr>
-                    <td align="left">
-                        <select name="select-choice-0" id="select-choice-0" data-mini="true">
-                            <option value="standard">Alphabetical</option>
-                            <option value="rush">By distance</option>
-                            <option value="express">By crowd meter</option>
-                        </select>
-                    </td>
-                    <td align="right">Order by</td>
-                </tr>
-            </table>
+                <table  width="90%">
+                    <tr><td><br></td></tr>
+                    <tr>
+                        <td align="left">
+                            <select name="flip-1" id="flip-1" data-role="slider">
+                                <option value="off">Off</option>
+                                <option value="on">On</option>
+                            </select>
+                        </td>
+                        <td align="right">Enable passive reports</td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <select name="flip-2" id="flip-2" data-role="slider">
+                                <option value="off">Off</option>
+                                <option value="on">On</option>
+                            </select>
+                        </td>
+                        <td align="right">Offer me alternatives</td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <select name="select-choice-0" id="select-choice-0" data-mini="true">
+                                <option value="standard">Alphabetical</option>
+                                <option value="rush">By distance</option>
+                                <option value="express">By crowd meter</option>
+                            </select>
+                        </td>
+                        <td align="right">Order by</td>
+                    </tr>
+                </table>
             </center>
         </div>    
         <!-- /Settings -->
-        
+
         <!-- Busy Report Pop-up -->
-         <div data-role="popup" id="report" data-theme="a" align="center" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
-                        <h3>Is it BZ?</h3>
-                        <p>Send a BZ repot for this place</p>
-                        <form>
-                            <div class="ui-field-contain">
-                                <input type="range" name="slider-8" id="slider-8" data-mini="true" min="0" max="100" value="50">
-                            </div>
-                        </form>
-                        <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini">Send</a>
-                        <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancel</a>
-                    </div>
+        <div data-role="popup" id="report" data-theme="a" align="center" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+            <h3>Is it BZ?</h3>
+            <p>Send a BZ repot for this place</p>
+            <form>
+                <div class="ui-field-contain">
+                    <input type="range" name="slider-8" id="slider-8" data-mini="true" min="0" max="100" value="50">
+                </div>
+            </form>
+            <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini">Send</a>
+            <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancel</a>
+        </div>
         <!-- /Busy report -->
-        
-         <!-- Footer navbar -->
+
+        <!-- Footer navbar -->
         <div data-role="footer" data-theme=a data-id="foo1" data-position="fixed" style="display:none;" id="footer">
-             <div data-role="navbar" data-theme=a>
-                 <ul>
-                    <li><a href="#index" data-icon="search" class="ui-btn-active ui-state-persist" onclick="switchPage('mainsearch')">Search</a></li>
-                     <li><a href="#menu" data-icon="location" onclick="switchPage('list')">Around Me</a></li>
-                     <li><a href="#settings" data-icon="gear" onclick="switchPage('settings')">Settings</a></li>
-                 </ul>
-             </div><!-- /navbar -->
-         </div><!-- /footer -->
-</body>
+            <div data-role="navbar" data-theme=a>
+                <ul>
+                    <li><a href="#menu" data-icon="location" onclick="switchPage('list')"></a></li>
+                    <li><a href="#index" data-icon="search" class="ui-btn-active ui-state-persist" onclick="switchPage('mainsearch')"></a></li>
+                    <li><a href="#settings" data-icon="gear" onclick="switchPage('settings')"></a></li>
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /footer -->
+    </body>
 </html>
