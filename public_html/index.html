@@ -3,6 +3,18 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
+
+body{
+background: url('') no-repeat center bottom
+}
+#onePlace {
+height: 300px; 
+background: rgba(255, 255, 255, 0.2);
+color: white;
+}
+<body>
+<div id="blur"></div>
+</body>
 -->
 <html>
     <head>
@@ -28,6 +40,7 @@ and open the template in the editor.
                 list-style-type: none;
                 padding: 0px;
                 margin: 0px;
+                overflow: hidden;
             }
             li
             {
@@ -45,14 +58,16 @@ and open the template in the editor.
                 font-family: 'PT Sans Narrow', sans-serif;
                 font-size: 20px;
             }
-
+            #onePlace {
+               // height: 700px; 
+                background: url('images/bg.jpg') no-repeat center bottom;
+                color: white;
+            }
         </style>
         <script type="text/javascript">
 
             setTimeout(function() {
-                $("#splash").hide();
-                $("#mainsearch").show();
-                $("#footer").show();
+               switchPage('mainsearch');
             }, 3000);
 
             function sendSearch() {
@@ -81,8 +96,10 @@ and open the template in the editor.
                                             "<div class=\"listdiv\">" +
                                             "<a href=\"#place\" onclick=\"placePage('" + val.p_name + "', '" + val.meter +
                                             "', '" + val.image + "')\">" +
-                                            "<img class=\"imagelist\" style='display:block; width:100%;height:200px;' id='image" +
-                                            val.p_name + "' src='data:image/bmp;base64," + val.image + "' /><p class=\"textlist\" style='position:relative; left:5px; top:-100px; z-index:1;'>" +
+                                            "<img class=\"imagelist\" usemap=\"#planetmap\" style='display:block; width:100%;height:200px;' id='image" +
+                                            val.p_name + "' src='data:image/bmp;base64," + val.image + "' />" + 
+                                            "<map name=\"planetmap\"><area shape=\"rect\" coords=\"0,0,82,126\" alt=\"show something\" style='filter: blur(5px) brightness(0.5);'></map>" + 
+                                            "<p class=\"textlist\" style='position:relative; left:5px; top:-100px; z-index:1;'>" +
                                             val.p_name + "</p></a><br><img src=\"images/bar/leftsideofbar.png\" style='position:relative; left:10px; top:-124px; z-index:2;'>" +
                                             "<img src=\"images/bar/middlebar.png\" height=\"18\" width=\"" + val.meter * 2.3 + "\" style='position:relative; left:10px; top:-124px; z-index:2;'>" +
                                             "<img src=\"images/bar/rightsideofbar.png\" style='position:relative; left:10px; top:-124px; z-index:2;'>" +
@@ -139,13 +156,20 @@ and open the template in the editor.
                 $("#settings").hide();
                 $("#list").hide();
                 $("#onePlace").hide();
+                $("#header").show();
                 $("#" + page).show();
                 $("#footer").show();
             }
         </script>
     </head>
     <body>
-
+        
+        <!-- Header navbar -->
+        <div data-role="navbar" data-position="fixed" class="ui-btn-active ui-state-persist" style="display:none;" id="header">
+            <ul>
+                <li class="ui-btn-active ui-state-persist"><a href="#" class="ui-btn-active ui-state-persist">EZBZ</a></li>
+            </ul>
+        </div><!-- /navbar -->
 
         <!-- This is the splash page -->
         <div id="splash" style="position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; z-index: 10;">
@@ -185,7 +209,7 @@ and open the template in the editor.
 
         <!-- List of places page -->
         <div id="list" style="display:none;">
-
+            
         </div>
         <!-- /List -->
 
