@@ -21,7 +21,11 @@ color: white;
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-        <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <style type="text/css">a {text-decoration: none}</style>
         <title>EZBZ</title>
         <meta charset="UTF-8">
@@ -29,7 +33,7 @@ color: white;
         <style>
             body
             {
-                background-color:#ab8d3f;
+               background-color:#a58d3f;
             }
             img.imagelist
             {
@@ -49,20 +53,25 @@ color: white;
             h2
             {
                 color:#f7f7f7;
-                font-family: 'PT Sans Narrow', sans-serif;
-                font-size: 30px;
+                font-family: 'Lato', sans-serif;
+                font-size: 25px;
+                font-weight: lighter;
             }
             p
             {
                 color:#f7f7f7;
-                font-family: 'PT Sans Narrow', sans-serif;
-                font-size: 20px;
+                font-family: 'Lato', sans-serif;
+                font-size: 15px;
+                font-weight: lighter;
             }
-            #onePlace {
+            .ui-page .ui-header {
+                background: #ab8d3f !important;
+            }
+           // #onePlace {
                // height: 700px; 
-                background: url('images/bg.jpg') no-repeat center bottom;
-                color: white;
-            }
+               // background: url('images/bg.jpg') no-repeat center bottom;
+              //  color: white;
+         //   }
         </style>
         <script type="text/javascript">
 
@@ -85,25 +94,37 @@ color: white;
                         var status = data.Status;
 
                         // In case search was successful
-                        if (status == "Success") {
+                        if (status === "Success") {
                             // In case a category was searched for
                             if (data.Location_names.length > 1) {
                                 switchPage('list');
+                                $("#list").html("");
                                 var items = [];
                                 items.push("<ul data-role=\"listview\" data-inset=\"true\">");
                                 $.each(data.Location_names, function(key, val) {
-                                    items.push("<li id='" + key + "'>" +
-                                            "<div class=\"listdiv\">" +
-                                            "<a href=\"#place\" onclick=\"placePage('" + val.p_name + "', '" + val.meter +
-                                            "', '" + val.image + "')\">" +
-                                            "<img class=\"imagelist\" usemap=\"#planetmap\" style='display:block; width:100%;height:200px;' id='image" +
-                                            val.p_name + "' src='data:image/bmp;base64," + val.image + "' />" + 
-                                            "<map name=\"planetmap\"><area shape=\"rect\" coords=\"0,0,82,126\" alt=\"show something\" style='filter: blur(5px) brightness(0.5);'></map>" + 
-                                            "<p class=\"textlist\" style='position:relative; left:5px; top:-100px; z-index:1;'>" +
-                                            val.p_name + "</p></a><br><img src=\"images/bar/leftsideofbar.png\" style='position:relative; left:10px; top:-124px; z-index:2;'>" +
-                                            "<img src=\"images/bar/middlebar.png\" height=\"18\" width=\"" + val.meter * 2.3 + "\" style='position:relative; left:10px; top:-124px; z-index:2;'>" +
-                                            "<img src=\"images/bar/rightsideofbar.png\" style='position:relative; left:10px; top:-124px; z-index:2;'>" +
-                                            "<img src=\"images/bar/barbg.png\" style='position:relative; left:5px; top:-150px; z-index:1;'> <p style='position:relative; left:270px; top:-203px; z-index:1; font-color:#f7f7f7'>" + Math.round(val.meter) + "%</p></li></div>");
+                                    items.push(
+                                    // New list item
+                                    "<li id='" + key + "'><div class=\"listdiv\">" + 
+                                            
+                                    // Link to the page of a certain place
+                                    "<a href=\"#place\" onclick=\"placePage('" + val.p_name + "', '" + val.meter + "', '" + val.image + "')\">" +
+                                    
+                                    // Image of the place
+                                    "<img class=\"imagelist\" usemap=\"#planetmap\" style='display:block; width:100%;height:200px;' id='image" + val.p_name + "' src='data:image/bmp;base64," + val.image + "' />" + 
+                                    
+                                    // Name of the place
+                                    "<p class=\"textlist\" style='position:relative; left:10px; top:-125px; z-index:1;'>" + val.p_name + "</p>" +
+                                    
+                                    // Left middle and right side of the blue bar
+                                    "<img src=\"images/bar/leftsideofbar.png\" border=\"0\" height=\"13\" style='position:relative; left:10px; top:-135px; z-index:2;'>" +
+                                    "<img src=\"images/bar/middlebar.png\" border=\"0\" height=\"13\" width=\"" + val.meter * 2.3 + "\" style='position:relative; left:10px; top:-135px; z-index:2;'>" +
+                                    "<img src=\"images/bar/rightsideofbar.png\" border=\"0\" height=\"13\" style='position:relative; left:10px; top:-135px; z-index:2;'><br>" +
+                                    
+                                    // Background of bar
+                                    "<img src=\"images/bar/barbg.png\" height=\"19\" width=\"253\" style='position:relative; left:5px; top:-156px; z-index:1;'>" +
+                                    
+                                    // Precentage or Busy meter
+                                    "<p style='position:relative; left:260px; top:-195px; z-index:1; font-color:#f7f7f7'>" + Math.round(val.meter) + "%</p></a></div></li>");
                                 });
                                 items.push("</ul>");
                                 $(items.join("")).prependTo("#list");
@@ -140,13 +161,33 @@ color: white;
                 switchPage('onePlace');
                 $("#onePlace").html("");
                 var items = [];
-                items.push("<center><h2 style='position:relative; z-index:2;'>" + name +
-                        "</h2></center><img style='display:block; width:100%;height:100%; position:relative; top:-101px;' id='image" +
-                        name + "' src='data:image/bmp;base64," + image + "' /><img src=\"images/bar/leftsideofbar.png\" style='position:relative; left:10px; top:-144px; z-index:2;'>" +
-                        "<img src=\"images/bar/middlebar.png\" height=\"18\" width=\"" + busy * 2.3 + "\" style='position:relative; left:10px; top:-144px; z-index:2;'>" +
-                        "<img src=\"images/bar/rightsideofbar.png\" style='position:relative; left:10px; top:-144px; z-index:2;'>" +
-                        "<img src=\"images/bar/barbg.png\" style='position:relative; left:5px; top:-170px; z-index:1;'> <p style='position:relative; left:270px; top:-223px; z-index:1; font-color:#f7f7f7'>" +
-                        Math.round(busy) + "%</p></li></div>" + "<center><img src=\"images/buttons/report.png\" style='width:20%'> <img src=\"images/buttons/snooze.png\" style='width:20%'> <img src=\"images/buttons/similar.png\" style='width:20%'></center>");
+                items.push(
+                        // Headline
+                        "<center><h2 style='position:relative; z-index:2;'>" + name + "</h2></center>" + 
+                        
+                        // Image of the place - MIGHT NEED TO REMOVE THIS PART LATER IF PICTURE WILL BE AS A BACKROUND
+                        "<img style='display:block; width:100%;height:100%; position:relative; top:-101px;' id='image" + name + "' src='data:image/bmp;base64," + image + "' />" + 
+                        
+                        // The left, middle and right parts of the blue bar
+                        "<img src=\"images/bar/leftsideofbar.png\" height=\"13\" style='position:relative; left:10px; top:-135px; z-index:2;'>" +
+                        "<img src=\"images/bar/middlebar.png\" height=\"13\" width=\"" + busy * 2.3 + "\" style='position:relative; left:10px; top:-135px; z-index:2;'>" +
+                        "<img src=\"images/bar/rightsideofbar.png\" height=\"13\" style='position:relative; left:10px; top:-135px; z-index:2;'><br>" +
+                        
+                        // Bar's background
+                        "<img src=\"images/bar/barbg.png\" height=\"19\" width=\"253\" style='position:relative; left:5px; top:-155px; z-index:1;'>" + 
+                        
+                        // Precentage or Busy meter
+                        "<p style='position:relative; left:270px; top:-195px; z-index:1; font-color:#f7f7f7'>" + Math.round(busy) + "%</p>" + 
+                        
+                        // Report button
+                        "<center><img src=\"images/buttons/report.png\" style='width:20%'> " + 
+                        
+                        // Snooze button
+                        " <img src=\"images/buttons/snooze.png\" style='width:20%'> " + 
+                                
+                        // Similar places button
+                        " <img src=\"images/buttons/similar.png\" style='width:20%'></center>"
+                        );
                 $(items.join("")).prependTo("#onePlace");
             }
 
@@ -165,11 +206,16 @@ color: white;
     <body>
         
         <!-- Header navbar -->
+        <div data-theme="b" data-role="header" data-position="fixed" class="ui-btn-active ui-state-persist" style="display:none;" id="header">
+                <h1>EZBZ</h1>
+         </div>
+        
+        <!--
         <div data-role="navbar" data-position="fixed" class="ui-btn-active ui-state-persist" style="display:none;" id="header">
             <ul>
                 <li class="ui-btn-active ui-state-persist"><a href="#" class="ui-btn-active ui-state-persist">EZBZ</a></li>
             </ul>
-        </div><!-- /navbar -->
+        </div>--><!-- /navbar --> 
 
         <!-- This is the splash page -->
         <div id="splash" style="position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; z-index: 10;">
@@ -186,8 +232,8 @@ color: white;
                     </tr>
 
                     <tr>
-                        <td><input type="search" name="search" id="search-basic" value="" onchange="sendSearch()" placeholder="Enter the place you're going to"/></td>
-
+                        <td><input name="search" id="search-basic" value="" onchange="sendSearch()" placeholder="Enter the place you're going to"/></td>
+                        
                     </tr>
                     <tr>
                         <td>
@@ -198,6 +244,12 @@ color: white;
                     </tr>
 
                 </table>
+                 <script>
+                $( "#search-basic" ).autocomplete({
+                    source: 'http://ranor.milab.idc.ac.il:8888/autocomplete',
+                    minLength:2
+                });
+                </script>
                 <div id="belowSearch">
 
                 </div> 
