@@ -67,6 +67,7 @@ var app = {
     },
     onNotificationGCM: function(e) {
         alert("onNotificationGCM");
+        alert('registration id = '+ e.regid);
         switch( e.event )
         {
             case 'registered':
@@ -77,7 +78,6 @@ var app = {
                     if (AppConfig.onDebug) {
                         alert('registration id = '+ e.regid);
                     }
-                    alert(e.regdig);
                     gcmRegId = e.regid;
                 }
                 break;
