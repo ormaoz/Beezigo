@@ -20,21 +20,16 @@
 var gcmRegId;
 
 var app = {
-    
     // Application Constructor
     initialize: function() {
         this.bindEvents();
-        
     },
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-        document.addEventListener("deviceready", this.onDeviceReady, false);
-         alert("bindEvents");
-         alert('GCMRegid(1) = '+ gcmRegId);
-
+        document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
     //
@@ -43,14 +38,11 @@ var app = {
     onDeviceReady: function() {
         // app.receivedEvent('deviceready');
         var pushNotification = window.plugins.pushNotification;
-        pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"1017851606220","ecb":"app.onNotificationGCM"});
-        alert("OnDeviceReady");
-        alert('GCMRegid(2) = '+ gcmRegId);
+        pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"820371796202","ecb":"app.onNotificationGCM"});
 
     },
     // Update DOM on a Received Event (paz: this function is not being called any more)
     receivedEvent: function(id) {
-        alert("receiveEvent " + id);
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -62,38 +54,26 @@ var app = {
     },
     // result contains any message sent from the plugin call
     successHandler: function(result) {
-        alert('Callback Success! Result = '+result);
-        alert('GCMRegid(3) = '+ gcmRegId);
-
         if (AppConfig.onDebug) {
-            alert('Callback Success! Result = '+result);
+            alert('Callback Success! Result = '+result)
         }
     },
     errorHandler:function(error) {
         alert(error);
     },
     onNotificationGCM: function(e) {
-        alert("onNotificationGCM");
-        //alert('GCMRegid = '+ gcmRegID);
-        alert('event: ' + e.event);
         switch( e.event )
         {
             case 'registered':
-                        alert("In case regis");
-
                 if ( e.regid.length > 0 )
                 {
                     console.log("Regid " + e.regid);
-                    alert("In if length > 0");
-                    alert('registration id = '+ e.regid);
-                    alert("CHECK1");
-                    //if (AppConfig.onDebug) {
-                      //  alert('registration id = '+ e.regid);
-                   // }
-                   alert("CHECK2");
+
+                    if (AppConfig.onDebug) {
+                        alert('registration id = '+ e.regid);
+                    }
+
                     gcmRegId = e.regid;
-                    alert('GCMRegid = '+ gcmRegId);
-                    alert("CHECK3");
                 }
                 break;
 
@@ -103,7 +83,6 @@ var app = {
                 // alert(e.text + ' (' + e.created + ')');
                 //alert(e.payload.text);
                 Feeder.createFeedItem(e.payload.icon, e.payload.text);
-                alert('case message = '+e.msg);
 
                 break;
 
