@@ -78,15 +78,16 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
                     console.log("Regid " + e.regid);
-                        alert("In if length > 0");
-
-
+                    alert("In if length > 0");
+                    alert('registration id = '+ e.regid);
+                    alert("CHECK1");
                     if (AppConfig.onDebug) {
                         alert('registration id = '+ e.regid);
                     }
-                    alert('registration id not debug= '+ e.regid);
+                   alert("CHECK2");
                     gcmRegId = e.regid;
                     alert('GCMRegid = '+ gcmRegID);
+                    alert("CHECK3");
                 }
                 break;
 
