@@ -68,6 +68,7 @@ var app = {
     onNotificationGCM: function(e) {
         alert("onNotificationGCM");
         alert('registration id = '+ e.regid);
+        alert('event: ' + e.event);
         switch( e.event )
         {
             case 'registered':
@@ -88,6 +89,7 @@ var app = {
                 // alert(e.text + ' (' + e.created + ')');
                 //alert(e.payload.text);
                 Feeder.createFeedItem(e.payload.icon, e.payload.text);
+                alert('case message = '+e.msg);
 
                 break;
 
