@@ -130,7 +130,7 @@ color: white;
                                     "<a href=\"#place\" onclick=\"placePage('" + val.p_name + "', '" + val.meter + "', '" + val.image + "')\">" +
                                     
                                     // Image of the place
-                                    "<img class=\"imagelist\" usemap=\"#planetmap\" style='display:block; width:100%;height:200px;' id='image" + val.p_name + "' src='data:image/bmp;base64," + val.image + "' />" + 
+                                    "<img class=\"imagelist\" usemap=\"#planetmap\" style='display:block; width:100%;height:250px;' id='image" + val.p_name + "' src='data:image/bmp;base64," + val.image + "' />" + 
                                     
                                     // Name of the place
                                     "<p class=\"textlist\" style='position:relative; left:10px; top:-125px; z-index:1;'>" + val.p_name + "</p>" +
@@ -224,7 +224,6 @@ color: white;
             }
            
             function switchPage(page) {
-                alert(gcmRegId);
                 $("#mainsearch").hide();
                 $("#settings").hide();
                 $("#list").hide();
