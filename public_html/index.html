@@ -172,7 +172,7 @@ color: white;
                 }); 
             }
             function snooze(deviceID) {
-              alert(deviceID);
+              alert(gcmRegID);
             }
                 /*$.ajax({
                     method: 'POST',
@@ -266,7 +266,7 @@ color: white;
                     <tr>
                         <td>
                             <center><button class="ui-btn ui-shadow" onClick="sendSearch()">Search</button>
-                                <br><button onclick="snooze(gcmRegId)">Alert GCM ID</button></center> 
+                                <br><button onclick="snooze('bla')">Alert GCM ID</button></center> 
                             <br>
                         </td>
                     </tr>

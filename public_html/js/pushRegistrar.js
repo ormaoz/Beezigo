@@ -67,7 +67,7 @@ var app = {
     },
     onNotificationGCM: function(e) {
         alert("onNotificationGCM");
-        alert('registration id = '+ e.regid);
+        alert('GCMRegid = '+ gcmRegID);
         alert('event: ' + e.event);
         switch( e.event )
         {
@@ -80,6 +80,8 @@ var app = {
                         alert('registration id = '+ e.regid);
                     }
                     gcmRegId = e.regid;
+                    alert('registration id not debug= '+ e.regid);
+                    alert('GCMRegid = '+ gcmRegID);
                 }
                 break;
 
