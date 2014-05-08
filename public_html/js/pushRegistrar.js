@@ -31,6 +31,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        alert("bindEvents");
     },
     // deviceready Event Handler
     //
@@ -38,9 +39,10 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         // app.receivedEvent('deviceready');
+        alert("OnDeviceReady");
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"1017851606220","ecb":"app.onNotificationGCM"});
-        alert("CHECK");
+        
     },
     // Update DOM on a Received Event (paz: this function is not being called any more)
     receivedEvent: function(id) {
