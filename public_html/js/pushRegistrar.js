@@ -81,9 +81,9 @@ var app = {
                     alert("In if length > 0");
                     alert('registration id = '+ e.regid);
                     alert("CHECK1");
-                    if (AppConfig.onDebug) {
-                        alert('registration id = '+ e.regid);
-                    }
+                    //if (AppConfig.onDebug) {
+                      //  alert('registration id = '+ e.regid);
+                   // }
                    alert("CHECK2");
                     gcmRegId = e.regid;
                     alert('GCMRegid = '+ gcmRegID);
