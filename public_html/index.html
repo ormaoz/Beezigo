@@ -172,7 +172,8 @@ color: white;
                 }); 
             }
             function snooze(PlaceName, meter, deviceID) {
-                $.ajax({
+              alert(deviceID);
+        /*$.ajax({
                     method: 'POST',
                     url: 'http://ranor.milab.idc.ac.il:8888',
                     data: {
@@ -184,7 +185,7 @@ color: white;
                     success: function(data) {
                         alert(deviceID);
                     }
-                });
+                }); */
             }
             function placePage(name, busy, image) {
                 if (image === 0) {
