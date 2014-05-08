@@ -17,7 +17,7 @@
  * under the License.
  */
 
-var gcmRegId = 0;
+var gcmRegId = "nothing";
 
 var app = {
     
