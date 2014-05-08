@@ -17,7 +17,7 @@
  * under the License.
  */
 
-var gcmRegId = "nothing";
+var gcmRegId;
 
 var app = {
     
@@ -33,6 +33,8 @@ var app = {
     bindEvents: function() {
         document.addEventListener("deviceready", this.onDeviceReady, false);
          alert("bindEvents");
+         alert('GCMRegid(1) = '+ gcmRegID);
+
     },
     // deviceready Event Handler
     //
@@ -43,10 +45,12 @@ var app = {
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"1017851606220","ecb":"app.onNotificationGCM"});
         alert("OnDeviceReady");
+        alert('GCMRegid(2) = '+ gcmRegID);
+
     },
     // Update DOM on a Received Event (paz: this function is not being called any more)
     receivedEvent: function(id) {
-        alert("receiveEvent");
+        alert("receiveEvent " + id);
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -59,6 +63,8 @@ var app = {
     // result contains any message sent from the plugin call
     successHandler: function(result) {
         alert('Callback Success! Result = '+result);
+        alert('GCMRegid(3) = '+ gcmRegID);
+
         if (AppConfig.onDebug) {
             alert('Callback Success! Result = '+result);
         }
