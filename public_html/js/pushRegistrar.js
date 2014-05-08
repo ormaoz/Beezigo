@@ -67,14 +67,18 @@ var app = {
     },
     onNotificationGCM: function(e) {
         alert("onNotificationGCM");
-        alert('GCMRegid = '+ gcmRegID);
+        //alert('GCMRegid = '+ gcmRegID);
         alert('event: ' + e.event);
         switch( e.event )
         {
             case 'registered':
+                        alert("In case regis");
+
                 if ( e.regid.length > 0 )
                 {
                     console.log("Regid " + e.regid);
+                        alert("In if length > 0");
+
 
                     if (AppConfig.onDebug) {
                         alert('registration id = '+ e.regid);
