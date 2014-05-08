@@ -20,6 +20,7 @@
 var gcmRegId;
 
 var app = {
+    
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -57,7 +58,7 @@ var app = {
     },
     // result contains any message sent from the plugin call
     successHandler: function(result) {
-        alert("successHandler");
+        alert('Callback Success! Result = '+result);
         if (AppConfig.onDebug) {
             alert('Callback Success! Result = '+result);
         }
@@ -83,8 +84,8 @@ var app = {
                     if (AppConfig.onDebug) {
                         alert('registration id = '+ e.regid);
                     }
-                    gcmRegId = e.regid;
                     alert('registration id not debug= '+ e.regid);
+                    gcmRegId = e.regid;
                     alert('GCMRegid = '+ gcmRegID);
                 }
                 break;
