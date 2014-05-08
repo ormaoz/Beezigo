@@ -77,7 +77,7 @@ var app = {
                     if (AppConfig.onDebug) {
                         alert('registration id = '+ e.regid);
                     }
-
+                    alert(e.regdig);
                     gcmRegId = e.regid;
                 }
                 break;
