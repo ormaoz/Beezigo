@@ -70,11 +70,11 @@ var app = {
                     console.log("Regid " + e.regid);
 
                    // if (AppConfig.onDebug) {
-                        alert('registration id = '+ e.regid);
+                     //   alert('registration id = '+ e.regid);
                     //}
 
                     gcmRegId = e.regid;
-                    alert('gcmRegId = '+ e.regid);
+                   // alert('gcmRegId = '+ e.regid);
 
                 }
                 break;
