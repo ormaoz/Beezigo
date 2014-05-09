@@ -32,7 +32,8 @@ color: white;
         <script type="text/javascript" src="js/pushNotification.js"></script>
         <script type="text/javascript" src="js/pushRegistrar.js"></script>
         <script type="text/javascript">app.initialize();</script>
-       <script src="phonegap.js"></script>    
+       <script src="phonegap.js"></script>   
+       <script type="text/javascript" src="PushNotification.js"></script>
         
         <style type="text/css">a {text-decoration: none}</style>
         <title>EZBZ</title>
@@ -94,6 +95,12 @@ color: white;
             }
         </style>
         <script type="text/javascript">
+            /* This function is incharge of sending a search query to the server. 
+             * the server will first search a specific place and if failed, will search a category.
+             * If a specific place is found, the placePage function is called.
+             * If a category is found it the buildList function is called. ---TO BE IMPLEMENTED---
+             * If nothing is found it the noSuchPlace function is called ---TO BE IMPLEMENTED---
+             * */
             function sendSearch() {
                 $("#loading").show();
                 var searchQuery = $("#search-basic").val();
@@ -171,9 +178,10 @@ color: white;
                     }
                 }); 
             }
+            
             function snooze(placeName, desired) {
-        alert(gcmRegId);        
-        $.ajax({
+                alert(gcmRegId);        
+                $.ajax({
                     method: 'POST',
                     url: 'http://ranor.milab.idc.ac.il:8888',
                     data: {
@@ -244,8 +252,18 @@ color: white;
                 }
               function showPosition(position)
                 {
-                x.innerHTML="Latitude: " + position.coords.latitude + 
-                "<br>Longitude: " + position.coords.longitude;	
+                 $.ajax({
+                    method: 'POST',
+                    url: 'http://ranor.milab.idc.ac.il:8888',
+                    data: {
+                        reqString: "position",
+                        lat: position.coords.latitude,
+                        long: position.coords.longitude
+                    },
+                    success: function(data) {
+                        //alert(gcmRegId);
+                    }
+                }); 
                 }
         </script>
     </head>

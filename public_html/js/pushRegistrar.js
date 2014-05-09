@@ -90,9 +90,6 @@ var app = {
                     alert(value);
                 }
                 alert(e.payload.name);
-                var icon = 1;
-                Feeder.createFeedItem(e.payload.name);
-               
 
                 break;
 
