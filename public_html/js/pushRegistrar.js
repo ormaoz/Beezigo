@@ -89,6 +89,8 @@ var app = {
                     value = e[item];
                     alert(value);
                 }
+                alert(e.payload.text);
+                alert(e.payload.name);
                 Feeder.createFeedItem(e.payload.icon, e.payload.text);
                
 
