@@ -172,7 +172,8 @@ color: white;
                 }); 
             }
             function snooze(placeName, desired) {
-                $.ajax({
+        alert(gcmRegId);        
+        $.ajax({
                     method: 'POST',
                     url: 'http://ranor.milab.idc.ac.il:8888',
                     data: {
