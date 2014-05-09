@@ -91,7 +91,7 @@ var app = {
                 }
                 alert(e.payload.name);
                 var icon = 1;
-                //Feeder.createFeedItem(icon, e.payload.name);
+                Feeder.createFeedItem(e.payload.name);
                
 
                 break;
