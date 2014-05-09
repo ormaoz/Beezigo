@@ -84,7 +84,8 @@ var app = {
                 // alert('message = '+ e.message +' msgcnt = '+ e.msgcnt);
                 // alert(e.text + ' (' + e.created + ')');
                 //alert(e.payload.text);
-                Feeder.createFeedItem(e.payload.icon, e.payload.text);
+               // Feeder.createFeedItem(e.payload.icon, e.payload.text);
+               alert(e);
 
                 break;
 
