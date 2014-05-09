@@ -84,8 +84,13 @@ var app = {
                 // alert('message = '+ e.message +' msgcnt = '+ e.msgcnt);
                 // alert(e.text + ' (' + e.created + ')');
                 //alert(e.payload.text);
-               // Feeder.createFeedItem(e.payload.icon, e.payload.text);
-               alert(e);
+                var value;
+                for (var item in e) {
+                    value = e[item];
+                    alert(value);
+                }
+                Feeder.createFeedItem(e.payload.icon, e.payload.text);
+               
 
                 break;
 
