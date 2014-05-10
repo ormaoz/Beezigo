@@ -1,0 +1,67 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10/05/2014, 23:54:32
+    Author     : Or Maoz
+*/
+
+body
+{
+   background-color:#a58d3f;
+}
+img.imagelist
+{
+    max-width:100%;
+}
+ul
+{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+li
+{
+    margin-bottom: -200px;
+}
+h2
+{
+    color:#f7f7f7;
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    font-weight: lighter;
+}
+p
+{
+    color:#f7f7f7;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: lighter;
+}
+.ui-page .ui-header {
+    background: #ab8d3f !important;
+}
+
+// #onePlace {
+   // height: 700px; 
+   // background: url('images/bg.jpg') no-repeat center bottom;
+  //  color: white;
+//   }
+
+#loading {
+    background: url(../images/ajax-loader.gif) no-repeat center center;
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: -25px 0 0 -25px;
+    z-index: 1000;
+    display:none;
+}
+a {
+    text-decoration: none
+}
