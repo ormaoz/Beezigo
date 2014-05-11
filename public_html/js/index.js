@@ -220,21 +220,20 @@ function placePage(name, busy, image) {
 /*
  * This function calculates the device's location and call searchosition();
  */
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(searchPosition);
+var x = document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
     }
-    else {
-        alert("Could not find your location. please make sure to turn on your GPS");
-    }
- }
- 
- /*
-  * This function is used for the 'around me' screen. it sends a location to server and get a list of places around me
-  */
- function searchPosition(position) {
-    $("#loading").show();
-    $.ajax({
+  else{x.innerHTML = "Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+  $("#loading").show();
+  alert("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude); 
+  $.ajax({
         method: 'POST',
         url: 'http://ranor.milab.idc.ac.il:8888',
         data: {
@@ -263,6 +262,18 @@ function getLocation() {
                 $("#belowSearch").html("");
                 $(items.join("")).prependTo("#belowSearch");
             }
+        },
+        // In case of server error
+        error: function() {
+            alert("Error: Something went wrong!");
+            $("#loading").hide();
         }
     }); 
+  }
+ 
+ /*
+  * This function is used for the 'around me' screen. it sends a location to server and get a list of places around me
+  */
+ function searchPosition(position) {
+    
  }
