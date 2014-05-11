@@ -181,6 +181,7 @@ function snooze(placeName, desired) {
  * This function creates an html page of one place. 
  */
 function placePage(name, busy, image, category) {
+    alert(category);
     if (image === 0) {
         image = defaultImage;
     }

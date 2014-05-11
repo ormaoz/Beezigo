@@ -71,20 +71,20 @@
     -->
 
     <!-- Define app icon for each platform. -->
-    <icon src="images/logo.png" />
-    <icon src="images/logo.png"   gap:platform="android"    gap:density="ldpi" />
-    <icon src="images/logo.png"   gap:platform="android"    gap:density="mdpi" />
-    <icon src="images/logo.png"   gap:platform="android"    gap:density="hdpi" />
-    <icon src="images/logo.png"  gap:platform="android"    gap:density="xhdpi" />
-    <icon src="images/logo.png"     gap:platform="blackberry" />
-    <icon src="images/logo.png"     gap:platform="blackberry" gap:state="hover"/>
-    <icon src="images/logo.png"            gap:platform="ios"        width="57" height="57" />
-    <icon src="images/logo.png"            gap:platform="ios"        width="72" height="72" />
-    <icon src="images/logo.png"         gap:platform="ios"        width="114" height="114" />
-    <icon src="images/logo.png"         gap:platform="ios"        width="144" height="144" />
-    <icon src="images/logo.png"          gap:platform="webos" />
-    <icon src="images/logo.png"  gap:platform="winphone" />
-    <icon src="images/logo.png" gap:platform="winphone"   gap:role="background" />
+    <icon src="images/logonew.png" />
+    <icon src="images/logonew.png"   gap:platform="android"    gap:density="ldpi" />
+    <icon src="images/logonew.png"   gap:platform="android"    gap:density="mdpi" />
+    <icon src="images/logonew.png"   gap:platform="android"    gap:density="hdpi" />
+    <icon src="images/logonew.png"  gap:platform="android"    gap:density="xhdpi" />
+    <icon src="images/logonew.png"     gap:platform="blackberry" />
+    <icon src="images/logonew.png"     gap:platform="blackberry" gap:state="hover"/>
+    <icon src="images/logonew.png"            gap:platform="ios"        width="57" height="57" />
+    <icon src="images/logonew.png"            gap:platform="ios"        width="72" height="72" />
+    <icon src="images/logonew.png"         gap:platform="ios"        width="114" height="114" />
+    <icon src="images/logonew.png"         gap:platform="ios"        width="144" height="144" />
+    <icon src="images/logonew.png"          gap:platform="webos" />
+    <icon src="images/logonew.png"  gap:platform="winphone" />
+    <icon src="images/logonew.png" gap:platform="winphone"   gap:role="background" />
 
     <!-- Define app splash screen for each platform. -->
     <gap:splash src="images/splash.png"       gap:platform="android" gap:density="ldpi" />
