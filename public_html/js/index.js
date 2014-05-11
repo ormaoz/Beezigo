@@ -129,7 +129,7 @@ function buildList(placeArray, distanceNeeded) {
         "<img class=\"imagelist\" usemap=\"#planetmap\" style='display:block; width:100%;height:185px;' id='image" + val.p_name + "' src='data:image/bmp;base64," + val.image + "' />" + 
         
         // White line seperator
-        "<br><img src=\"images/whiteline.png\" style='width:100%; height:10px;'>" +
+        "<br><img src=\"images/whiteline.png\" style='width:100%; height:50px;'>" +
                 
         // Name of the place
         "<p class=\"textlist\" style='position:relative; left:10px; top:-125px; z-index:1;'>" + val.p_name + "");
