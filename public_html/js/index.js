@@ -230,7 +230,7 @@ function getLocation() {
     }
   }
 function showPosition(position) {
-  alert("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude); 
+  //alert("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude); 
   $.ajax({
         method: 'POST',
         url: 'http://ranor.milab.idc.ac.il:8888',
