@@ -62,7 +62,7 @@ function sendSearch(searchQuery) {
 
                 // In case a specific place was searched for
                 } else {
-                    placePage(data.Location_names[0].p_name, data.Location_names[0].meter, data.Location_names[0].image);
+                    placePage(data.Location_names[0].p_name, data.Location_names[0].meter, data.Location_names[0].image, data.Location_names[0].category);
                 }
 
             // In case user search for non exciting place
@@ -129,7 +129,7 @@ function buildList(placeArray, distanceNeeded) {
         "<img class=\"imagelist\" usemap=\"#planetmap\" style='display:block; width:100%;height:185px;' id='image" + val.p_name + "' src='data:image/bmp;base64," + val.image + "' />" + 
         
         // White line seperator
-        "<br><img src=\"images/whiteline.png\" style='width:100%; height:1px;'>" +
+        "<br><img src=\"images/whiteline.png\" style='width:100%; height:10px;'>" +
                 
         // Name of the place
         "<p class=\"textlist\" style='position:relative; left:10px; top:-125px; z-index:1;'>" + val.p_name + "");
@@ -180,7 +180,7 @@ function snooze(placeName, desired) {
 /*
  * This function creates an html page of one place. 
  */
-function placePage(name, busy, image) {
+function placePage(name, busy, image, category) {
     if (image === 0) {
         image = defaultImage;
     }
@@ -206,13 +206,13 @@ function placePage(name, busy, image) {
         "<p style='position:relative; left:270px; top:-195px; z-index:1; font-color:#f7f7f7'>" + Math.round(busy) + "%</p>" + 
 
         // Report button
-        "<center><img src=\"images/buttons/report.png\" width=\"70\" style='position:relative; top:-40px;'> " + 
+        "<center><a href=\"#report\" data-rel=\"popup\"><img src=\"images/buttons/report.png\" width=\"90\" style='position:relative; top:-40px;'> </a>" + 
 
         // Snooze button ---CURRENTLY SET ON 50 --- NEED TO IMPLEMENT SNOOZE POP UP AND FIX IT ---
-        "<a onclick=\"snooze('" + name + "', '50')\" href=\"#\"><img src=\"images/buttons/snooze.png\" width=\"70\" style='position:relative; top:-40px;'></a>" + 
+        " <a onclick=\"snooze('" + name + "', '50')\" href=\"#\"><img src=\"images/buttons/snooze.png\" width=\"90\" style='position:relative; top:-40px;'> </a>" + 
 
         // Similar places button
-        " <img src=\"images/buttons/similar.png\" width=\"70\" style='position:relative; top:-40px;'></center>"
+        " <a href=\"#\" onclick=\"sendSearch('" + category + "')\"><img src=\"images/buttons/similar.png\" width=\"90\" style='position:relative; top:-40px;'></a></center>"
      );
     $(items.join("")).prependTo("#onePlace");
 }
@@ -220,18 +220,16 @@ function placePage(name, busy, image) {
 /*
  * This function calculates the device's location and call searchosition();
  */
-var x = document.getElementById("demo");
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
-    navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else{x.innerHTML = "Geolocation is not supported by this browser.";}
-  }
-function showPosition(position)
-  {
+function getLocation() {
   $("#loading").show();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+  else {
+      alert("Could not find location");
+    }
+  }
+function showPosition(position) {
   alert("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude); 
   $.ajax({
         method: 'POST',
