@@ -18,11 +18,11 @@
  */
 
 var gcmRegId;
-AppConfig.onDebug = true;
+
 var app = {
     // Application Constructor
     initialize: function() {
-        switchPage('mainsearch');
+        
         this.bindEvents();
     },
     // Bind Event Listeners
