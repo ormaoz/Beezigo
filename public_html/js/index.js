@@ -67,33 +67,15 @@ function sendSearch(searchQuery) {
 
             // In case user search for non exciting place
             } else {
-                placeNotFound();
+                switchPage('notFound');
             }
         },
         // In case of server error
         error: function() {
-            alert("Error: Something went wrong!");
+            alert("Error: We seems to have some problems at the moment, please try again later!");
             $("#loading").hide();
         }
     }); 
-}
-
-/*
- * This function displays a page when a search was unsecsesful.
- */
-function placeNotFound() {
-    var items = [];
-    items.push(
-        "<center><table border=\"0\" width=\"90%\"><tr><td align=\"center\">" +
-        "<p><font color=\"black\">Sorry but we could not find<br>what you were looking for</p>" + 
-        "<p>We invite you to try one of our categories:</p>" +
-        "<button class=\"ui-btn ui-shadow\" onClick=\"sendSearch('Museums')\">Museums</button>" +
-        "<br><button class=\"ui-btn ui-shadow\" onClick=\"sendSearch('Attractions')\">Attractions</button>" +
-        "<br><button class=\"ui-btn ui-shadow\" onClick=\"sendSearch('Markets & Shops')\">Markets & Shops</button></center></tr></td></table>");
-    $("#notFound").html("");
-    $(items.join("")).prependTo("#notFound");
-    switchPage('notFound');
-    $("#loading").hide(); 
 }
 
 /*
@@ -227,9 +209,12 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition(showPosition);
   }
   else {
-      alert("Could not find location");
-    }
+    alert("Could not find location! Please make sure your GPS is turned on");
   }
+}
+/*
+* This function is used for the 'around me' screen. it sends a location to server and get a list of places around me
+*/
 function showPosition(position) {
   //alert("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude); 
   $.ajax({
@@ -270,9 +255,4 @@ function showPosition(position) {
     }); 
   }
  
- /*
-  * This function is used for the 'around me' screen. it sends a location to server and get a list of places around me
-  */
- function searchPosition(position) {
-    
- }
+ 

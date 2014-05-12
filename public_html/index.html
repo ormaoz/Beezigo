@@ -64,7 +64,7 @@ color: white;
                     </tr>
 
                     <tr>
-                        <td><input name="search" id="search-basic" value="" onchange="sendSearch('')" placeholder="Enter the place you're going to"/><br></td>
+                        <td><input name="search" id="search-basic" value="" onchange="sendSearch('')" placeholder="Where are you heading to?"/><br></td>
                         
                     </tr>
                     <tr>
@@ -88,7 +88,17 @@ color: white;
 
         <!-- Place not found -->
         <div id="notFound" style="display:none;">
-            
+            <center>
+                <table border="0" width="85%">
+                    <tr><td align="center">
+                            <p><font color="darkred" size="5">Sorry but we could not find what you were looking for</font></p> 
+                            <p><font color="black" size="6">We invite you to try one of our categories:</font></p>
+                            <br><button class="ui-btn ui-shadow" onClick="sendSearch('Museums')">Museums</button>
+                            <br><button class="ui-btn ui-shadow" onClick="sendSearch('Attractions')">Attractions</button>
+                            <br><button class="ui-btn ui-shadow" onClick="sendSearch('Markets & Shops')">Markets & Shops</button>
+                    </td></tr>
+                </table>
+            </center>
         </div>
         <!-- /Around me -->
         
@@ -131,7 +141,7 @@ color: white;
                     </tr>
                     <tr>
                         <td align="left">
-                            <p><font color="black">Just like you, we like to visit cool places and experience new adventures but sometimes it's not that easy. As places getting more popular, the more busier they are. We are here exactly for that, to help you <b>find the places you love at their best</b></font></p>
+                            <p><font color="black">Just like you, we like to visit new places and experience new adventures but sometimes it's not that easy. As places become more popular, the busier they get. We are here exactly for that, to help you <b>find the places you love at their best</b></font></p>
                         </td>
                     </tr>
                     <tr>
