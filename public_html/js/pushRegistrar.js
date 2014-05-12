@@ -31,6 +31,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        alert('in bindEvents. id is = ' + gcmRegId);
     },
     // deviceready Event Handler
     //
@@ -38,6 +39,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         // app.receivedEvent('deviceready');
+        alert('in onDeviceReady START. id is = ' + gcmRegId);
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"1017851606220","ecb":"app.onNotificationGCM"});
         alert('in onDeviceReady. id is = ' + gcmRegId);
