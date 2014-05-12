@@ -86,8 +86,9 @@ var app = {
                 // this is the actual push notification. its format depends on the data model from the push server
                 // alert('message = '+ e.message +' msgcnt = '+ e.msgcnt);
                 // alert(e.text + ' (' + e.created + ')');
-                //alert(e.payload.text);
-                Feeder.createFeedItem(e.payload.icon, e.payload.text);
+                alert(e.payload.text);
+                
+                
 
                 break;
 
