@@ -62,7 +62,7 @@ if(!window.plugins) {
 if (!window.plugins.pushNotification) {
     window.plugins.pushNotification = new PushNotification();
 }
-/* This part thorws error right now! 
+// This part thorws error right now! 
 if (module.exports) {
   module.exports = PushNotification;
-}*/
+}

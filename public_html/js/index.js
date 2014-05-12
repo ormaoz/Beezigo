@@ -143,7 +143,8 @@ function buildList(placeArray, distanceNeeded) {
  * This is the snooze function. it send a snooze request to the server with the gcm id which created by the pushRegistrar.js.
  */
 function snooze(placeName, desired) {
-    alert(gcmRegId);        
+    //alert(gcmRegId); 
+    alert("coming soon");
     $.ajax({
         method: 'POST',
         url: 'http://ranor.milab.idc.ac.il:8888',
