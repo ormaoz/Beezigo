@@ -56,15 +56,13 @@ var app = {
     // result contains any message sent from the plugin call
     successHandler: function(result) {
         if (AppConfig.onDebug) {
-            alert('Callback Success! Result = '+result);
+            alert('Callback Success! Result = '+result)
         }
     },
     errorHandler:function(error) {
         alert(error);
     },
     onNotificationGCM: function(e) {
-        alert('GCM id = '+ gcmRegId);
-        alert('regid = '+ e.regid);
         switch( e.event )
         {
             case 'registered':
@@ -72,13 +70,11 @@ var app = {
                 {
                     console.log("Regid " + e.regid);
 
-                   // if (AppConfig.onDebug) {
-                     //   alert('registration id = '+ e.regid);
-                    //}
+                    if (AppConfig.onDebug) {
+                        alert('registration id = '+ e.regid);
+                    }
 
                     gcmRegId = e.regid;
-                    alert('gcmRegId = '+ e.regid);
-
                 }
                 break;
 
@@ -87,12 +83,7 @@ var app = {
                 // alert('message = '+ e.message +' msgcnt = '+ e.msgcnt);
                 // alert(e.text + ' (' + e.created + ')');
                 //alert(e.payload.text);
-                var value;
-                for (var item in e) {
-                    value = e[item];
-                    alert(value);
-                }
-                alert(e.payload.name);
+                Feeder.createFeedItem(e.payload.icon, e.payload.text);
 
                 break;
 
