@@ -56,13 +56,15 @@ var app = {
     // result contains any message sent from the plugin call
     successHandler: function(result) {
         if (AppConfig.onDebug) {
-            alert('Callback Success! Result = '+result)
+            alert('Callback Success! Result = '+result);
         }
     },
     errorHandler:function(error) {
         alert(error);
     },
     onNotificationGCM: function(e) {
+        alert('GCM id = '+ gcmRegId);
+        alert('regid = '+ e.regid);
         switch( e.event )
         {
             case 'registered':
@@ -75,7 +77,7 @@ var app = {
                     //}
 
                     gcmRegId = e.regid;
-                   // alert('gcmRegId = '+ e.regid);
+                    alert('gcmRegId = '+ e.regid);
 
                 }
                 break;
