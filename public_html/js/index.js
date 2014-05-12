@@ -25,8 +25,7 @@ function switchPage(page) {
     $("#loading").hide();
     $("#header").show();
     $("#" + page).show();
-    $("#footer").show();
-    
+    $("#footer").show();  
 }
 
 /* This function is incharge of sending a search query to the server. 
@@ -241,10 +240,8 @@ function showPosition(position) {
                 }
             // In case user search for non exciting place
             } else {
-                var items = [];
-                items.push("<p>Could not find the place you're looking for</p>");
-                $("#belowSearch").html("");
-                $(items.join("")).prependTo("#belowSearch");
+                alert("We have some problem with your request. Please try again later");
+                $("#loading").hide();
             }
         },
         // In case of server error
