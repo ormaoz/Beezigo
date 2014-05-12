@@ -67,6 +67,7 @@ var app = {
     onNotificationGCM: function(e) {
         alert('in onNotificationGCM. global var id is = ' + gcmRegId);
         alert('in onNotificationGCM. regid is = ' + e.regid);
+         alert(e.payload.text);
         switch( e.event )
         {
             case 'registered':
