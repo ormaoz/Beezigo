@@ -40,7 +40,7 @@ var app = {
         // app.receivedEvent('deviceready');
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"1017851606220","ecb":"app.onNotificationGCM"});
-
+        alert('in onDeviceReady. id is = ' + gcmRegId);
     },
     // Update DOM on a Received Event (paz: this function is not being called any more)
     receivedEvent: function(id) {
@@ -63,6 +63,8 @@ var app = {
         alert(error);
     },
     onNotificationGCM: function(e) {
+        alert('in onNotificationGCM. global var id is = ' + gcmRegId);
+        alert('in onNotificationGCM. regid is = ' + e.regid);
         switch( e.event )
         {
             case 'registered':
