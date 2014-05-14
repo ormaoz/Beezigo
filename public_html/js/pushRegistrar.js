@@ -30,6 +30,7 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
+        alert('in bindEvents START. id is = ' + gcmRegId);
         document.addEventListener('deviceready', this.onDeviceReady, false);
         alert('in bindEvents. id is = ' + gcmRegId);
     },
