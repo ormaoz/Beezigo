@@ -11,6 +11,7 @@ and open the template in the editor.
 body
 {
    background-color:#a58d3f;
+   font-family: 'Lato', sans-serif;
 }
 img.imagelist
 {
@@ -41,15 +42,23 @@ p
     font-size: 15px;
     font-weight: lighter;
 }
+
+a {
+    text-decoration: none;
+    color:#f7f7f7;
+}
+
 .ui-page .ui-header {
     background: #ab8d3f !important;
 }
 
-// #onePlace {
-   // height: 700px; 
-   // background: url('images/bg.jpg') no-repeat center bottom;
-  //  color: white;
-//   }
+/* Hide the number input */
+.full-width-slider input {
+    display: none !important;
+}
+.full-width-slider .ui-slider-track {
+    margin-left: 15px;
+}
 
 #loading {
     background: url(../images/ajax-loader.gif) no-repeat center center;
@@ -62,6 +71,12 @@ p
     z-index: 1000;
     display:none;
 }
-a {
-    text-decoration: none
+#report {
+    position: fixed;
+    left: 10%;
+    top: -50%;
+    height: 40%;
+    width: 80%;
+    z-index: 1000;
 }
+

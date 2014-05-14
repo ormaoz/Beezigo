@@ -23,6 +23,8 @@ function switchPage(page) {
     $("#onePlace").hide();
     $("#aroundMe").hide();
     $("#loading").hide();
+    $("#fakeOnePlace").hide();
+    $("#report").hide();
     $("#header").show();
     $("#" + page).show();
     $("#footer").show();  
@@ -38,7 +40,7 @@ function sendSearch(searchQuery) {
     $("#loading").show();
     
     if (searchQuery === "") {
-        var searchQuery = $("#search-basic").val();
+        searchQuery = $("#search-basic").val();
     }
 
     //document.getElementById("search-basic").value;
@@ -122,9 +124,9 @@ function buildList(placeArray, distanceNeeded) {
         }
         items.push(
         // Left middle and right side of the blue bar
-        "<img src=\"images/bar/leftsideofbar.png\" border=\"0\" height=\"13\" style='position:relative; left:10px; top:-135px; z-index:2;'>" +
-        "<img src=\"images/bar/middlebar.png\" border=\"0\" height=\"13\" width=\"" + val.meter * 2.3 + "\" style='position:relative; left:10px; top:-135px; z-index:2;'>" +
-        "<img src=\"images/bar/rightsideofbar.png\" border=\"0\" height=\"13\" style='position:relative; left:10px; top:-135px; z-index:2;'><br>" +
+        "<img src=\"images/bar/leftsideofbar.png\" border=\"0\" height=\"13\" style='position:relative; left:10px; top:-136px; z-index:2;'>" +
+        "<img src=\"images/bar/middlebar.png\" border=\"0\" height=\"13\" width=\"" + val.meter * 2.3 + "\" style='position:relative; left:10px; top:-136px; z-index:2;'>" +
+        "<img src=\"images/bar/rightsideofbar.png\" border=\"0\" height=\"13\" style='position:relative; left:10px; top:-136px; z-index:2;'><br>" +
 
         // Background of bar
         "<img src=\"images/bar/barbg.png\" height=\"19\" width=\"253\" style='position:relative; left:5px; top:-156px; z-index:1;'>" +
@@ -158,6 +160,14 @@ function snooze(placeName, desired) {
         }
     }); 
 }
+
+/*
+ * Send active user reports to server ---TO BE IMPLEMENTED---
+ */
+function sendActiveReport() {
+    alert("Thank you for reporting");
+}
+
 
 /*
  * This function creates an html page of one place. 

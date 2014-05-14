@@ -22,7 +22,6 @@ var gcmRegId;
 var app = {
     // Application Constructor
     initialize: function() {
-        alert("initialize");
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -30,9 +29,7 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-        alert('in bindEvents START. id is = ' + gcmRegId);
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        alert('in bindEvents. id is = ' + gcmRegId);
     },
     // deviceready Event Handler
     //
@@ -40,10 +37,8 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         // app.receivedEvent('deviceready');
-        alert('in onDeviceReady START. id is = ' + gcmRegId);
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"1017851606220","ecb":"app.onNotificationGCM"});
-        alert('in onDeviceReady. id is = ' + gcmRegId);
     },
     // Update DOM on a Received Event (paz: this function is not being called any more)
     receivedEvent: function(id) {
@@ -66,8 +61,6 @@ var app = {
         alert(error);
     },
     onNotificationGCM: function(e) {
-        alert('in onNotificationGCM. global var id is = ' + gcmRegId);
-        alert('in onNotificationGCM. regid is = ' + e.regid);
         switch( e.event )
         {
             case 'registered':
@@ -88,10 +81,6 @@ var app = {
                 // alert('message = '+ e.message +' msgcnt = '+ e.msgcnt);
                 // alert(e.text + ' (' + e.created + ')');
                 alert("In message");
-                alert(e.payload.text);
-                
-                
-
                 break;
 
             case 'error':
