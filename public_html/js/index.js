@@ -146,7 +146,6 @@ function snooze() {
    placeName = $("#search-basic").val();
    level = $("#slidersnooze").val();
    var desired = oneToHunderd(level);
-   alert(desired);
     $.ajax({
         method: 'POST',
         url: 'http://ranor.milab.idc.ac.il:8888',
