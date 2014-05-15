@@ -80,3 +80,35 @@ a {
     z-index: 1000;
 }
 
+#fakeOnePlace {
+  position: fixed; 
+  width: 100%; 
+  height: 100%;
+  background-image: url('../images/picturePlace.jpg');
+  background-size: cover;
+}
+/*
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+*/
+/*
+#fakeOnePlace {
+    display:none;
+    overflow-y: hidden ! important;
+    overflow-x: hidden ! important;
+    background-color: #f8f8f8;
+    background-image: url('../images/picturePlace.jpg');
+    background-size: cover;
+   
+    background-repeat: no-repeat;
+    background-position: right;
+}*/
+
