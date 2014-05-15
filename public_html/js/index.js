@@ -24,7 +24,6 @@ function switchPage(page) {
     $("#aroundMe").hide();
     $("#loading").hide();
     $("#fakeOnePlace").hide();
-    $("#report").hide();
     $("#header").show();
     $("#" + page).show();
     $("#footer").show();  
@@ -143,9 +142,11 @@ function buildList(placeArray, distanceNeeded) {
 /*
  * This is the snooze function. it send a snooze request to the server with the gcm id which created by the pushRegistrar.js.
  */
-function snooze(placeName, desired) {
-    alert(gcmRegId); 
-    //alert("coming soon");
+function snooze() {
+   placeName = $("#search-basic").val();
+   level = $("#slidersnooze").val();
+   var desired = oneToHunderd(level);
+   alert(desired);
     $.ajax({
         method: 'POST',
         url: 'http://ranor.milab.idc.ac.il:8888',
@@ -185,6 +186,23 @@ function busyWord(busy) {
     }
 }
 
+/*
+ * Give each busy value a word to it
+ */
+function oneToHunderd(busy) {
+    if (busy == 1) {
+        return 20;
+    } else if (busy == 2) {
+        return 50;
+    } else if (busy == 3) {
+        return 75;
+    } else if (busy == 4) {
+        return 100;
+    } else {
+        return 0;
+    }
+}
+
 
 /*
  * This function creates an html page of one place. 
@@ -219,12 +237,12 @@ function placePage(name, busy, image, category, address, phone, website) {
         
         // Busy word
         "<p style='position:relative; left: 77%; top:155px ; z-index:1; font-color:#f7f7f7'>" + busyWord(busy) + "</p>" +
-        
+
         // Report button    
-        "<center><a href=\"#report\" data-rel=\"popup\"><img src=\"images/buttons/report.png\" style='position:relative; top:300px; width:20%'></a>" +
+        "<center><a href=\"#reportpop\" data-position-to=\"window\" data-rel=\"popup\" data-transition=\"pop\"><img src=\"images/buttons/report.png\" style='position:relative; top:300px; width:20%'></a>" +
         
         // Snooze button ---CURRENTLY SET ON 50 --- NEED TO IMPLEMENT SNOOZE POP UP AND FIX IT ---
-        "<a href=\"#\" onclick=\"snooze('" + name + "', '50')\"><img src=\"images/buttons/snooze.png\" style='position:relative; top:300px; padding-left:10%; padding-right:10%; width:20%'></a>" +
+        "<a href=\"#snoozepop\" data-position-to=\"window\" data-rel=\"popup\" data-transition=\"pop\"><img src=\"images/buttons/snooze.png\" style='position:relative; top:300px; padding-left:10%; padding-right:10%; width:20%'></a>" +
         
         // Similar places    
         "<a href=\"#\" onclick=\"sendSearch('" + category + "')\"><img src=\"images/buttons/similar.png\" style='position:relative; top:300px; width:20%'></a></center></div>"
