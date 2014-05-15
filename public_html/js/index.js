@@ -169,7 +169,7 @@ function sendActiveReport() {
 }
 
 /*
- * 
+ * Give each busy value a word to it
  */
 function busyWord(busy) {
     if (busy >= 0 && busy < 20) {
@@ -194,37 +194,44 @@ function placePage(name, busy, image, category, address, phone, website) {
     if (image === 0) {
         image = defaultImage;
     }
-   
     switchPage('onePlace');
     $("#onePlace").html("");
-    alert(address);
     var items = [];
     items.push(
-        "<div id=\"inOnePlace\" style=\"position: fixed; width: 100%; height: 100%; background-image: url('images/picturePlace.jpg'); background-size: cover;'\">" +
+        // Background image
+        "<div id=\"inOnePlace\" style=\"position: fixed; width: 100%; height: 100%; background-image: url(data:image/bmp;base64," + image + "); background-size: cover;'\">" +
+        
+        // Headline
         "<center><h2 style='position:absolute; margin-top:5%; left: 5%; font-size: 200%; z-index:2;'>" + name + "</h2></center>" +
+        
+        // Address + Phone + Website    
         "<p style='position:absolute; left: 5%; margin-top:30%; font-size: 120%; font-weight: 100; z-index:2;'>" +
         "Address: " + address + "<br>" + "Phone: <a style=\"color: #f7f7f7; text-decoration: none;\" href=\"tel:" + phone + "\">" + phone + "</a><br>" +
         "Website: &nbsp;<a style=\"color: #f7f7f7; text-decoration: none;\" href=\"http://www." + website + "\">" + website + "</a></p>" +
+        
+        // Blue bar    
         "<img src=\"images/bar/leftsideofbar.png\" style='position:relative; left:5.7%; height: 3%; top: 220px; z-index:2;'>" + 
         "<img src=\"images/bar/middlebar.png\" style='position:relative; left:5.7%; top: 220px; height: 3%; width: " + busy*0.63 + "%; z-index:2;'>" + 
         "<img src=\"images/bar/rightsideofbar.png\" style='position:relative; left:5.7%; height: 3%; top: 220px; z-index:2;'><br>" +
-
-        "<img src=\"images/bar/barbg.png\" style='position:relative; width: 70%; height: 4%; top: 194px; left:5%; z-index:1;'>" +
-
-        "<p style='position:relative; left: 77%; top:154px ; z-index:1; font-color:#f7f7f7'>" + busyWord(busy) + "</p>" +
+        
+        // Bar frame
+        "<img src=\"images/bar/barbg.png\" style='position:relative; width: 70%; height: 4%; top: 195px; left:5%; z-index:1;'>" +
+        
+        // Busy word
+        "<p style='position:relative; left: 77%; top:155px ; z-index:1; font-color:#f7f7f7'>" + busyWord(busy) + "</p>" +
+        
+        // Report button    
         "<center><a href=\"#report\" data-rel=\"popup\"><img src=\"images/buttons/report.png\" style='position:relative; top:300px; width:20%'></a>" +
-        "<a href=\"#\"><img src=\"images/buttons/snooze.png\" style='position:relative; top:300px; padding-left:10%; padding-right:10%; width:20%'></a>" +
-        "<a href=\"#\"><img src=\"images/buttons/similar.png\" style='position:relative; top:300px; width:20%'></a></center>"
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+        
+        // Snooze button ---CURRENTLY SET ON 50 --- NEED TO IMPLEMENT SNOOZE POP UP AND FIX IT ---
+        "<a href=\"#\" onclick=\"snooze('" + name + "', '50')\"><img src=\"images/buttons/snooze.png\" style='position:relative; top:300px; padding-left:10%; padding-right:10%; width:20%'></a>" +
+        
+        // Similar places    
+        "<a href=\"#\" onclick=\"sendSearch('" + category + "')\"><img src=\"images/buttons/similar.png\" style='position:relative; top:300px; width:20%'></a></center></div>"
+         );
+    $(items.join("")).prependTo("#onePlace");
+}        
+        /*  
             
         // Headline
        + "<center><h2 style='position:relative; z-index:2;'>" + name + "</h2></center>" + 
@@ -252,10 +259,8 @@ function placePage(name, busy, image, category, address, phone, website) {
         " <a onclick=\"snooze('" + name + "', '50')\" href=\"#\"><img src=\"images/buttons/snooze.png\" width=\"90\" style='position:relative; top:-40px;'> </a>" + 
 
         // Similar places button
-        " <a href=\"#\" onclick=\"sendSearch('" + category + "')\"><img src=\"images/buttons/similar.png\" width=\"90\" style='position:relative; top:-40px;'></a></center>"
-     );
-    $(items.join("")).prependTo("#onePlace");
-}
+        " <a href=\"#\" onclick=\"sendSearch('" + category + "')\"><img src=\"images/buttons/similar.png\" width=\"90\" style='position:relative; top:-40px;'></a></center>"*/
+
 
 /*
  * This function calculates the device's location and call searchosition();
