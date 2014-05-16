@@ -291,7 +291,7 @@ function showPosition(position) {
                 }
             // In case user search for non exciting place
             } else {
-                alert("We have some problem with your request. Please try again later");
+                alert("It's seems you're too far from any available location. please try again later");
                 $("#loading").hide();
             }
         },
