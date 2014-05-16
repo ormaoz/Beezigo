@@ -232,10 +232,10 @@ function placePage(name, busy, image, category, address, phone, website) {
         "<img src=\"images/bar/rightsideofbar.png\" style='position:relative; left:5.7%; height: 3%; top: 220px; z-index:2;'><br>" +
         
         // Bar frame
-        "<img src=\"images/bar/barbg.png\" style='position:relative; width: 70%; height: 4%; top: 195px; left:5%; z-index:1;'>" +
+        "<img src=\"images/bar/barbg.png\" style='position:relative; width: 70%; height: 4%; top: 194px; left:5%; z-index:1;'>" +
         
         // Busy word
-        "<p style='position:relative; left: 77%; top:155px ; z-index:1; font-color:#f7f7f7'>" + busyWord(busy) + "</p>" +
+        "<p style='position:relative; left: 77%; top:154px ; z-index:1; font-color:#f7f7f7'>" + busyWord(busy) + "</p>" +
 
         // Report button    
         "<center><a href=\"#reportpop\" data-position-to=\"window\" data-rel=\"popup\" data-transition=\"pop\"><img src=\"images/buttons/report.png\" style='position:relative; top:300px; width:20%'></a>" +
@@ -248,35 +248,6 @@ function placePage(name, busy, image, category, address, phone, website) {
          );
     $(items.join("")).prependTo("#onePlace");
 }        
-        /*  
-            
-        // Headline
-       + "<center><h2 style='position:relative; z-index:2;'>" + name + "</h2></center>" + 
-        
-        "<p style='position:relative; z-index:2;'>" + address + "<br>" + phone + "<br>" + website + "</p>" +
-        
-        // Image of the place - MIGHT NEED TO REMOVE THIS PART LATER IF PICTURE WILL BE AS A BACKROUND
-        "<img style='display:block; width:100%;height:100%; position:relative; top:-101px;' id='image" + name + "' src='data:image/bmp;base64," + image + "' />" + 
-
-        // The left, middle and right parts of the blue bar
-        "<img src=\"images/bar/leftsideofbar.png\" height=\"13\" style='position:relative; left:10px; top:-135px; z-index:2;'>" +
-        "<img src=\"images/bar/middlebar.png\" height=\"13\" width=\"" + busy * 2.3 + "\" style='position:relative; left:10px; top:-135px; z-index:2;'>" +
-        "<img src=\"images/bar/rightsideofbar.png\" height=\"13\" style='position:relative; left:10px; top:-135px; z-index:2;'><br>" +
-
-        // Bar's background
-        "<img src=\"images/bar/barbg.png\" height=\"19\" width=\"253\" style='position:relative; left:5px; top:-155px; z-index:1;'>" + 
-
-        // Precentage or Busy meter
-        "<p style='position:relative; left:270px; top:-195px; z-index:1; font-color:#f7f7f7'>" + Math.round(busy) + "%</p>" + 
-
-        // Report button
-        "<center><a href=\"#report\" data-rel=\"popup\"><img src=\"images/buttons/report.png\" width=\"90\" style='position:relative; top:-40px;'> </a>" + 
-
-        // Snooze button ---CURRENTLY SET ON 50 --- NEED TO IMPLEMENT SNOOZE POP UP AND FIX IT ---
-        " <a onclick=\"snooze('" + name + "', '50')\" href=\"#\"><img src=\"images/buttons/snooze.png\" width=\"90\" style='position:relative; top:-40px;'> </a>" + 
-
-        // Similar places button
-        " <a href=\"#\" onclick=\"sendSearch('" + category + "')\"><img src=\"images/buttons/similar.png\" width=\"90\" style='position:relative; top:-40px;'></a></center>"*/
 
 
 /*
