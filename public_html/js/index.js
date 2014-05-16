@@ -232,10 +232,10 @@ function placePage(name, busy, image, category, address, phone, website) {
         "<img src=\"images/bar/rightsideofbar.png\" style='position:relative; left:5.7%; height: 3%; top: 220px; z-index:2;'><br>" +
         
         // Bar frame
-        "<img src=\"images/bar/barbg.png\" style='position:relative; width: 70%; height: 4%; top: 194px; left:5%; z-index:1;'>" +
+        "<img src=\"images/bar/barbg.png\" style='position:relative; width: 70%; height: 4%; top: 196px; left:5%; z-index:1;'>" +
         
         // Busy word
-        "<p style='position:relative; left: 77%; top:154px ; z-index:1; font-color:#f7f7f7'>" + busyWord(busy) + "</p>" +
+        "<p style='position:relative; left: 77%; top:156px ; z-index:1; font-color:#f7f7f7'>" + busyWord(busy) + "</p>" +
 
         // Report button    
         "<center><a href=\"#reportpop\" data-position-to=\"window\" data-rel=\"popup\" data-transition=\"pop\"><img src=\"images/buttons/report.png\" style='position:relative; top:300px; width:20%'></a>" +
