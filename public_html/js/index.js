@@ -219,23 +219,23 @@ function placePage(name, busy, image, category, address, phone, website) {
         "<div id=\"inOnePlace\" style=\"position: fixed; width: 100%; height: 100%; background-image: url(data:image/bmp;base64," + image + "); background-size: cover;'\">" +
         
         // Headline
-        "<center><h2 style='position:absolute; margin-top:5%; left: 5%; font-size: 200%; z-index:2;'>" + name + "</h2></center>" +
+        "<center><h2 style='position:absolute; margin-top:5%; left: 5%; font-size: 150%; z-index:2;'>" + name + "</h2></center>" +
         
         // Address + Phone + Website    
-        "<p style='position:absolute; left: 5%; margin-top:30%; font-size: 120%; font-weight: 100; z-index:2;'>" +
+        "<p style='position:absolute; left: 5%; margin-top:25%; font-size: 100%; font-weight: 100; z-index:2;'>" +
         "Address: " + address + "<br>" + "Phone: <a style=\"color: #f7f7f7; text-decoration: none;\" href=\"tel:" + phone + "\">" + phone + "</a><br>" +
         "Website: &nbsp;<a style=\"color: #f7f7f7; text-decoration: none;\" href=\"http://www." + website + "\">" + website + "</a></p>" +
         
         // Blue bar    
-        "<img src=\"images/bar/leftsideofbar.png\" style='position:relative; left:5.7%; height: 3%; top: 220px; z-index:2;'>" + 
-        "<img src=\"images/bar/middlebar.png\" style='position:relative; left:5.7%; top: 220px; height: 3%; width: " + busy*0.63 + "%; z-index:2;'>" + 
-        "<img src=\"images/bar/rightsideofbar.png\" style='position:relative; left:5.7%; height: 3%; top: 220px; z-index:2;'><br>" +
+        "<img src=\"images/bar/leftsideofbar.png\" style='position:relative; left:5.7%; height: 3%; top: 200px; z-index:2;'>" + 
+        "<img src=\"images/bar/middlebar.png\" style='position:relative; left:5.7%; top: 200px; height: 3%; width: " + busy*0.63 + "%; z-index:2;'>" + 
+        "<img src=\"images/bar/rightsideofbar.png\" style='position:relative; left:5.7%; height: 3%; top: 200px; z-index:2;'><br>" +
         
         // Bar frame
-        "<img src=\"images/bar/barbg.png\" style='position:relative; width: 70%; height: 4%; top: 196px; left:5%; z-index:1;'>" +
+        "<img src=\"images/bar/barbg.png\" style='position:relative; width: 70%; height: 4%; top: 176px; left:5%; z-index:1;'>" +
         
         // Busy word
-        "<p style='position:relative; left: 77%; top:156px ; z-index:1; font-color:#f7f7f7'>" + busyWord(busy) + "</p>" +
+        "<p style='position:relative; left: 77%; top:136px ; z-index:1; font-color:#f7f7f7'>" + busyWord(busy) + "</p>" +
 
         // Report button    
         "<center><a href=\"#reportpop\" data-position-to=\"window\" data-rel=\"popup\" data-transition=\"pop\"><img src=\"images/buttons/report.png\" style='position:relative; top:300px; width:20%'></a>" +
