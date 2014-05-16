@@ -85,6 +85,7 @@ function sendSearch(searchQuery) {
  */
 function buildList(placeArray, distanceNeeded) {
     var nameOfPage;
+    var pixelsToAdd = 0;
     if (distanceNeeded) {
         nameOfPage = "aroundMe";
     } else {
@@ -120,18 +121,19 @@ function buildList(placeArray, distanceNeeded) {
             items.push("<br>" + val.distance.toFixed(2) + " miles</p>");
         } else {
             items.push("<br>&nbsp;</p>");
+            pixelsToAdd = -14;
         }
         items.push(
         // Left middle and right side of the blue bar
-        "<img src=\"images/bar/leftsideofbar.png\" border=\"0\" height=\"13\" style='position:relative; left:10px; top:-136px; z-index:2;'>" +
-        "<img src=\"images/bar/middlebar.png\" border=\"0\" height=\"13\" width=\"" + val.meter * 2.3 + "\" style='position:relative; left:10px; top:-136px; z-index:2;'>" +
-        "<img src=\"images/bar/rightsideofbar.png\" border=\"0\" height=\"13\" style='position:relative; left:10px; top:-136px; z-index:2;'><br>" +
+        "<img src=\"images/bar/leftsideofbar.png\" border=\"0\" height=\"13\" style='position:relative; left:10px; top:" + (-136+pixelsToAdd) + "px; z-index:2;'>" +
+        "<img src=\"images/bar/middlebar.png\" border=\"0\" height=\"13\" width=\"" + val.meter * 2.3 + "\" style='position:relative; left:10px; top:" + (-136+pixelsToAdd) + "px; z-index:2;'>" +
+        "<img src=\"images/bar/rightsideofbar.png\" border=\"0\" height=\"13\" style='position:relative; left:10px; top:" + (-136+pixelsToAdd) + "px; z-index:2;'><br>" +
 
         // Background of bar
-        "<img src=\"images/bar/barbg.png\" height=\"19\" width=\"253\" style='position:relative; left:5px; top:-156px; z-index:1;'>" +
+        "<img src=\"images/bar/barbg.png\" height=\"19\" width=\"253\" style='position:relative; left:5px; top:" + (-156+pixelsToAdd) + "px; z-index:1;'>" +
 
         // Precentage or Busy meter
-        "<p style='position:relative; left:260px; top:-195px; z-index:1; font-color:#f7f7f7'>" + Math.round(val.meter) + "%");
+        "<p style='position:relative; left:260px; top:" + (-195+pixelsToAdd) + "px; z-index:1; font-color:#f7f7f7'>" + busyWord(val.meter) + "");
 
     });
 
