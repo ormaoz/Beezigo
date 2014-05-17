@@ -218,35 +218,35 @@ function placePage(name, busy, image, category, address, phone, website) {
     var items = [];
     items.push(
         // Background image
+
         "<div id=\"inOnePlace\" style=\"position: fixed; width: 100%; height: 100%; background-image: url(data:image/bmp;base64," + image + "); background-size: cover;'\">" +
-        
+
         // Headline
-        "<center><h2 style='position:absolute; margin-top:5%; left: 5%; font-size: 150%; z-index:2;'>" + name + "</h2></center>" +
+        "<center><h2 style='position:absolute; margin-top:5%; left: 5%; rigth: 5%; font-size: 200%; z-index:2;'>" + name + "</h2></center>" +
         
         // Address + Phone + Website    
-        "<p style='position:absolute; left: 5%; margin-top:25%; font-size: 100%; font-weight: 100; z-index:2;'>" +
-        "Address: " + address + "<br>" + "Phone: <a style=\"color: #f7f7f7; text-decoration: none;\" href=\"tel:" + phone + "\">" + phone + "</a><br>" +
-        "Website: &nbsp;<a style=\"color: #f7f7f7; text-decoration: none;\" href=\"http://www." + website + "\">" + website + "</a></p>" +
+        "<p class=\"placeDetails\">" +
+        "Address: &nbsp;" + address + "<br>" + "Phone: &nbsp;<a style=\"color: #f7f7f7; text-decoration: none; font-weight: lighter;\" href=\"tel:" + phone + "\">" + phone + "</a><br>" +
+        "Website: &nbsp;<a style=\"color: #f7f7f7; text-decoration: none; font-weight: lighter;\" href=\"http://www." + website + "\">" + website + "</a></p>" +
         
-        // Blue bar    
-        "<img src=\"images/bar/leftsideofbar.png\" style='position:relative; left:5.7%; height: 3%; top: 200px; z-index:2;'>" + 
-        "<img src=\"images/bar/middlebar.png\" style='position:relative; left:5.7%; top: 200px; height: 3%; width: " + busy*0.63 + "%; z-index:2;'>" + 
-        "<img src=\"images/bar/rightsideofbar.png\" style='position:relative; left:5.7%; height: 3%; top: 200px; z-index:2;'><br>" +
-        
-        // Bar frame
-        "<img src=\"images/bar/barbg.png\" style='position:relative; width: 70%; height: 4%; top: 176px; left:5%; z-index:1;'>" +
-        
-        // Busy word
-        "<p style='position:relative; left: 77%; top:136px ; z-index:1; font-color:#f7f7f7'>" + busyWord(busy) + "</p>" +
+        // Blue bar
+        "<div id=\"allBar\" style=\"position: absolute; margin-top: 50%; margin-left: 5%; margin-right: 5%;\">" +
+        "<div id=\"blueBar\" style=\"position: absolute; margin-left: 4px; margin-top: 4px; width: 100%\">" +
+        "<img src=\"images/bar/leftsideofbar.png\" style=\"height: 20px;\"><img src=\"images/bar/middlebar.png\" style=\"height: 20px; width: " + busy*0.66 + "%;'\"><img src=\"images/bar/rightsideofbar.png\" style=\"height: 20px;\"><br></div>" +
 
-        // Report button    
-        "<center><a href=\"#reportpop\" data-position-to=\"window\" data-rel=\"popup\" data-transition=\"pop\"><img src=\"images/buttons/report.png\" style='position:relative; top:300px; width:20%'></a>" +
+        // Bar frame
+        "<div id=\"baredge\"><img src=\"images/bar/barbg.png\" style=\"height: 29px; width: 75%; \">" +
+        "<p style=\"position: absolute; margin-top: -27px; margin-left: 77%;\">" + busyWord(busy) + "</p></div></div>" +
         
-        // Snooze button ---CURRENTLY SET ON 50 --- NEED TO IMPLEMENT SNOOZE POP UP AND FIX IT ---
-        "<a href=\"#snoozepop\" data-position-to=\"window\" data-rel=\"popup\" data-transition=\"pop\"><img src=\"images/buttons/snooze.png\" style='position:relative; top:300px; padding-left:10%; padding-right:10%; width:20%'></a>" +
+        // Report button    
+        "<div style=\"margin-top:110%;\"><center>" +
+        "<center><a href=\"#reportpop\" data-position-to=\"window\" data-rel=\"popup\" data-transition=\"pop\"><img src=\"images/buttons/report.png\" style='position:relative; width:20%'></a>" +
+        
+        // Snooze button
+        "<a href=\"#snoozepop\" data-position-to=\"window\" data-rel=\"popup\" data-transition=\"pop\"><img src=\"images/buttons/snooze.png\" style='position:relative; padding-left:10%; padding-right:10%; width:20%'></a>" +
         
         // Similar places    
-        "<a href=\"#\" onclick=\"sendSearch('" + category + "')\"><img src=\"images/buttons/similar.png\" style='position:relative; top:300px; width:20%'></a></center></div>"
+        "<a href=\"#\" onclick=\"sendSearch('" + category + "')\"><img src=\"images/buttons/similar.png\" style='position:relative; width:20%'></a></center></div></div></div>"
          );
     $(items.join("")).prependTo("#onePlace");
 }        
@@ -289,7 +289,7 @@ function showPosition(position) {
 
                 // In case a specific place was searched for
                 } else {
-                    placePage(data.Location_names[0].p_name, data.Location_names[0].meter, data.Location_names[0].image);
+                    placePage(data.Location_names[0].p_name, data.Location_names[0].meter, data.Location_names[0].image_height, data.Location_names[0].category, data.Location_names[0].address, data.Location_names[0].phone, data.Location_names[0].website);
                 }
             // In case user search for non exciting place
             } else {
