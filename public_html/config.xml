@@ -3,10 +3,10 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.miLab.EZBZ"
+        id        = "com.miLab.ezbz"
         version   = "1.03">
 
-    <name>EZBZ</name>
+    <name>ezbz</name>
 
     <description>
         Find places at their best.
