@@ -6,14 +6,14 @@
         id        = "com.miLab.EZBZ"
         version   = "1.04">
 
-    <name>ezbz</name>
+    <name>EZBZ</name>
 
     <description>
         Find places at their best.
     </description>
 
     <author href="http://milab.idc.ac.il" email="info@milab.idc.ac.il">
-        EZBZ Team:
+        ezbz Team:
         Mentor: Mrs. Noa Morag
         Project Manager: Gili Amram
         Product Team: Adi Shoel and Yully Sessler
