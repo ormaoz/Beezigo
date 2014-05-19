@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.miLab.EZBZ"
-         versionCode = "33" 
+        versionCode = "34" 
         version   = "1.04">
 
     <name>ezbz</name>
