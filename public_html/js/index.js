@@ -249,7 +249,7 @@ function placePage(name, busy, image, category, address, phone, website) {
         "Website: &nbsp;<a style=\"color: #f7f7f7; text-decoration: none; font-weight: lighter;\" href=\"http://www." + website + "\">" + website + "</a></p>" +
         
         // Blue bar
-        "<div id=\"allBar\" style=\"position: absolute; margin-top: 50%; margin-left: 5%; margin-right: 5%;\">" +
+        "<div id=\"allBar\">" +
         "<div id=\"blueBar\" style=\"position: absolute; margin-left: 4px; margin-top: 4px; width: 100%\">" +
         "<img src=\"images/bar/leftsideofbar.png\" style=\"height: 20px;\"><img src=\"images/bar/middlebar.png\" style=\"height: 20px; width: " + busy*0.66 + "%;'\"><img src=\"images/bar/rightsideofbar.png\" style=\"height: 20px;\"><br></div>" +
 
