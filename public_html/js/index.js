@@ -154,7 +154,8 @@ function buildList(placeArray, distanceNeeded, reqNum) {
         "<p style='position:relative; left:260px; top:" + (-195+pixelsToAdd) + "px; z-index:1; font-color:#f7f7f7'>" + busyWord(val.meter) + "");
 
     });
-    items.push("</ul></div><div id=\"someNew\"><script>$(window).scroll(function() { if($(window).scrollTop() + $(window).height() == $(document).height()) {sendSearch('" + category + "', " + 0 + "); }});</script>");
+    items.push("</ul></div>");
+    //<div id=\"someNew\"><script>$(window).scroll(function() { if($(window).scrollTop() + $(window).height() == $(document).height()) {sendSearch('" + category + "', " + 0 + "); }});</script>
     $(items.join("")).prependTo("#" + nameOfPage);
     $("#loading").hide();
 
