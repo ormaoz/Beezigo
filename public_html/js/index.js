@@ -241,7 +241,7 @@ function placePage(name, busy, image, category, address, phone, website) {
         "<div id=\"inOnePlace\" style=\"position: fixed; width: 100%; height: 100%; background-image: url(data:image/bmp;base64," + image + "); background-size: cover;'\">" +
 
         // Headline
-        "<center><h2 style='position:absolute; margin-top:5%; left: 5%; rigth: 5%; font-size: 200%; z-index:2;'>" + name + "</h2></center>" +
+        "<center><h2 style='position:absolute; margin-top:5%; left: 5%; rigth: 5%; font-size: 150%; z-index:2;'>" + name + "</h2></center>" +
         
         // Address + Phone + Website    
         "<p class=\"placeDetails\">" +
