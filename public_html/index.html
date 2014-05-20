@@ -29,7 +29,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width">
         
     </head>
-    <body onload="switchPage('mainsearch')">
+    <body onload="startApp()">
        
         <!-- Loader -->
         <div id="loading"></div>
@@ -52,13 +52,13 @@ and open the template in the editor.
                     </tr>
 
                     <tr>
-                        <td><input name="search" id="search-basic" value="" onchange="sendSearch('')" placeholder="Where are you heading?"/><br></td>
+                        <td><input name="search" id="search-basic" value="" onchange="sendSearch('', 0)" placeholder="Where are you heading?"/><br></td>
                         
                     </tr>
                     <tr>
                         <td>
-                            <center><button class="ui-btn ui-shadow" onClick="sendSearch('')">Search</button>
-<!--                          <br><button onclick="switchPage('fakeOnePlace')">Fake Place</button></center>-->
+                            <center><button class="ui-btn ui-shadow" onClick="sendSearch('', 0)">Search</button>
+                          <br><button onclick="switchPage('fakeOnePlace')">Fake Place</button></center>
                             <br>
                         </td>
                     </tr>
@@ -81,9 +81,9 @@ and open the template in the editor.
                     <tr><td align="center">
                             <p><font color="darkred" size="5">Sorry but we could not find what you were looking for</font></p> 
                             <p><font color="black" size="6">We invite you to try one of our categories:</font></p>
-                            <br><button class="ui-btn ui-shadow" onClick="sendSearch('Museums')">Museums</button>
-                            <br><button class="ui-btn ui-shadow" onClick="sendSearch('Attractions')">Attractions</button>
-                            <br><button class="ui-btn ui-shadow" onClick="sendSearch('Markets & Shops')">Markets & Shops</button>
+                            <br><button class="ui-btn ui-shadow" onClick="sendSearch('Museums', 0)">Museums</button>
+                            <br><button class="ui-btn ui-shadow" onClick="sendSearch('Attractions', 0)">Attractions</button>
+                            <br><button class="ui-btn ui-shadow" onClick="sendSearch('Markets & Shops', 0)">Markets & Shops</button>
                     </td></tr>
                 </table>
             </center>
@@ -111,7 +111,7 @@ and open the template in the editor.
         <!-- Fake One places page -->
         <div id="fakeOnePlace" style="display:none;">
             <div id="inOnePlace" style="position: fixed; width: 100%; height: 100%; background-image: url('images/123123.jpg'); background-size: cover;'">
-                <center><h2 style='position:absolute; margin-top:5%; margin-left: 5%; margin-right: 5%; font-size: 200%; z-index:2;'>Chelsea Market</h2></center>
+                <center><h2 style='position:absolute; margin-top:5%; margin-left: 5%; margin-right: 5%; font-size: 100%; z-index:2;'>Chelsea Market</h2></center>
                 <p class="placeDetails">
                 Address: &nbsp;75 9th Avenue ,New York<br>
                 Phone: <a href="tel:050-5647333" style="color: #f7f7f7; text-decoration: none; font-weight: lighter;">212-194-1048</a><br>
