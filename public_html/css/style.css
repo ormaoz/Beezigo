@@ -48,12 +48,18 @@ p
         position:absolute; 
         left: 5%; 
         right: 5%;
-        margin-top:15%; 
+        margin-top:20%; 
         font-size: 100%; 
         font-weight: 100; 
         z-index:2;
         color: #f7f7f7; 
         text-decoration: none;
+    }
+    #allBar {
+        position: absolute; 
+        margin-top: 50%; 
+        margin-left: 5%; 
+        margin-right: 5%;
     }
 }
 
@@ -68,6 +74,12 @@ p
         z-index:2;
         color: #f7f7f7; 
         text-decoration: none;
+    }
+    #allBar {
+        position: absolute; 
+        margin-top: 15%; 
+        margin-left: 5%; 
+        margin-right: 5%;
     }
 }
 
