@@ -7,9 +7,6 @@ and open the template in the editor.
     Created on : 10/05/2014, 23:54:32
     Author     : Or Maoz
 */
-@media screen and (device-width: 320px) and (device-height: 534px) and (-webkit-device-pixel-ratio: 1.5) {
-    
-}
 body
 {
    background-color:#a58d3f;
@@ -51,7 +48,7 @@ p
         position:absolute; 
         left: 5%; 
         right: 5%;
-        margin-top:25%; 
+        margin-top:15%; 
         font-size: 100%; 
         font-weight: 100; 
         z-index:2;
@@ -65,7 +62,7 @@ p
         position:absolute; 
         left: 5%; 
         right: 5%;
-        margin-top:25%; 
+        margin-top:15%; 
         font-size: 80%; 
         font-weight: 100; 
         z-index:2;
