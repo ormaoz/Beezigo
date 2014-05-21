@@ -294,8 +294,8 @@ function showPosition(position) {
         url: 'http://ranor.milab.idc.ac.il:8888',
         data: {
             reqString: "locations_nearby",
-            loc_long:  -73.971537,
-            loc_lat: 40.774717,
+            loc_long: -73.979523,
+            loc_lat: 40.759121,
             req_number: 0
          },
         success: function(data) {
@@ -306,7 +306,7 @@ function showPosition(position) {
             if (status === "Success") {
                 // In case a category was searched for
                 if (data.Location_names.length > 1) {
-                    buildList(data.Location_names, true, reqNum);
+                    buildList(data.Location_names, true, 0);
 
                 // In case a specific place was searched for
                 } else {
