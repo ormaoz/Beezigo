@@ -252,10 +252,10 @@ function placePage(name, busy, image, category, address, phone, website) {
         // Blue bar
         "<div id=\"allBar\">" +
         "<div id=\"blueBar\" style=\"position: absolute; margin-left: 4px; margin-top: 4px; width: 100%\">" +
-        "<img src=\"images/bar/leftsideofbar.png\" style=\"height: 20px;\"><img src=\"images/bar/middlebar.png\" style=\"height: 20px; width: " + busy*0.66 + "%;'\"><img src=\"images/bar/rightsideofbar.png\" style=\"height: 20px;\"><br></div>" +
+        "<img src=\"images/bar/leftsideofbar.png\" style=\"height: 15px;\"><img src=\"images/bar/middlebar.png\" style=\"height: 15px; width: " + busy*0.66 + "%;'\"><img src=\"images/bar/rightsideofbar.png\" style=\"height: 15px;\"><br></div>" +
 
         // Bar frame
-        "<div id=\"baredge\"><img src=\"images/bar/barbg.png\" style=\"height: 29px; width: 75%; \">" +
+        "<div id=\"baredge\"><img src=\"images/bar/barbg.png\" style=\"height: 24px; width: 75%; \">" +
         "<p style=\"position: absolute; margin-top: -27px; margin-left: 77%;\">" + busyWord(busy) + "</p></div></div>" +
         
         // Report button    

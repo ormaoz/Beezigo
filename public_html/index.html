@@ -12,11 +12,12 @@ and open the template in the editor.
         
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-         <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
         <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato' type='text/css'>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+        
         
         <!-- PUSH NOTIFICATIONS -->
         <script type="text/javascript" src="js/pushNotification.js"></script>
@@ -24,10 +25,9 @@ and open the template in the editor.
         <script type="text/javascript">app.initialize();</script>
         <script type="text/javascript" src="phonegap.js"></script>
         
-        <title>ezbz</title>
+        <title>EZBZ</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        
     </head>
     <body onload="startApp()">
        
@@ -37,7 +37,7 @@ and open the template in the editor.
          
         <!-- Header navbar -->
         <div data-theme="b" data-role="header" data-position="fixed" class="ui-btn-active ui-state-persist" style="display:none;" id="header">
-                <h1>ezbz</h1>
+            <center><img src="images/logotopwhite.png" style="width:10%; padding:2%; "></center>
          </div>
         <!-- End of header navbar -->
         
@@ -46,19 +46,20 @@ and open the template in the editor.
             <center>
                 <table border="0" width="90%">
                     <tr>
-                        <td align="center">
-                            <br><br><img src="images/logotop.png" height="100"><br><br>
+                        <td align="center"> 
                         </td>
                     </tr>
 
                     <tr>
-                        <td><input name="search" id="search-basic" value="" onchange="sendSearch('', 0)" placeholder="Where are you heading?"/><br></td>
-                        
+                        <td>
+                            <br><br>
+                            <input name="search" id="search-basic" value="" class="rounded-stuff" onchange="sendSearch('', 0)" placeholder="Where are you heading?"/><br></td>
+                      
                     </tr>
                     <tr>
                         <td>
                             <center><button class="ui-btn ui-shadow" onClick="sendSearch('', 0)">Search</button>
-<!--                          <br><button onclick="switchPage('fakeOnePlace')">Fake Place</button></center>-->
+                     <br><button onclick="switchPage('fakeOnePlace')">Fake Place</button></center>
                             <br>
                         </td>
                     </tr>
@@ -119,10 +120,10 @@ and open the template in the editor.
                 </p>
                 <div id="allBar" style="position: absolute; margin-top: 50%; margin-left: 5%; margin-right: 5%;">
                     <div id="blueBar" style="position: absolute; margin-left: 4px; margin-top: 4px; width: 100%">
-                        <img src="images/bar/leftsideofbar.png" style="height: 20px;"><img src="images/bar/middlebar.png" style="height: 20px; width: 66%;"><img src="images/bar/rightsideofbar.png" style="height: 20px;"><br>
+                        <img src="images/bar/leftsideofbar.png" style="height: 15px;"><img src="images/bar/middlebar.png" style="height: 15px; width: 66%;"><img src="images/bar/rightsideofbar.png" style="height: 15px;"><br>
                     </div> 
                     <div id="baredge">
-                    <img src="images/bar/barbg.png" style="height: 29px; width: 75%; ">
+                    <img src="images/bar/barbg.png" style="height: 25px; width: 75%; ">
                     <p style="position: absolute; margin-top: -27px; margin-left: 77%;">Awesome</p>
                     </div>
                 </div>
@@ -150,10 +151,10 @@ and open the template in the editor.
                     <tr>
                         <td align="left">
                             <p><font color="black">
-                                ezbz is a location based app which allows you to know how busy a popular place is in real time. With ezbz you can decide if a place is too busy and thus go somewhere else, have the app snooze you when it has reached the level of busyness of your choice or offer alternatives nearby. Currently ezbz supports only main attractions in NYC.
+                                EZBZ is a location based app which allows you to know how busy a popular place is in real time. With EZBZ you can decide if a place is too busy and thus go somewhere else, have the app snooze you when it has reached the level of busyness of your choice or offer alternatives nearby. Currently EZBZ supports only main attractions in NYC.
                             </font></p>
                             <p><font color="black">
-                               ezbz was developed by the Media Innovation Lab (miLAB) of the Sammy Ofer School of Communication in IDC Herzliya. All photos are courteously contributed by the Time Out NYC which holds all rights.
+                               EZBZ was developed by the Media Innovation Lab (miLAB) of the Sammy Ofer School of Communication in IDC Herzliya. All photos are courteously contributed by the Time Out NYC which holds all rights.
                             </font></p>
                             <p><font color="black">
                               Students: Gili Amram, Gal Ben-Shalom, Nimrod Klinger, Or Maoz, Ran Romano, Yully Sessler, Adi Shoel & Gali Swery.  

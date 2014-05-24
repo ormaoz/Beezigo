@@ -4,17 +4,17 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.miLab.EZBZ"
-        versionCode = "35" 
-        version   = "1.05">
+        versionCode = "36" 
+        version   = "1.06">
 
-    <name>ezbz</name>
+    <name>EZBZ</name>
 
     <description>
         Find places at their best.
     </description>
 
     <author href="http://milab.idc.ac.il" email="info@milab.idc.ac.il">
-        ezbz Team:
+        EZBZ Team:
         Mentor: Mrs. Noa Morag
         Project Manager: Gili Amram
         Product Team: Adi Shoel and Yully Sessler
