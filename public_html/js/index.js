@@ -238,7 +238,6 @@ function placePage(name, busy, image, category, address, phone, website) {
     var items = [];
     items.push(
         // Background image
-
         "<div id=\"inOnePlace\" style=\"position: fixed; width: 100%; height: 100%; background-image: url(data:image/bmp;base64," + image + "); background-size: cover;'\">" +
 
         // Headline
