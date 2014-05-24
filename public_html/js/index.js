@@ -294,8 +294,8 @@ function showPosition(position) {
         url: 'http://ranor.milab.idc.ac.il:8888',
         data: {
             reqString: "locations_nearby",
-            loc_long: -73.979523,
-            loc_lat: 40.759121,
+            loc_long: position.coords.longitude,
+            loc_lat: position.coords.latitude,
             req_number: 0
          },
         success: function(data) {
